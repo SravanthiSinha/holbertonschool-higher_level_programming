@@ -1,3 +1,4 @@
+
 var https = require('https');
 var fs=require('fs');
 
@@ -23,32 +24,35 @@ var req = https.request(options, function(res) {
     var cb=function(jsonString){
 //	fs.writeFile('/tmp/37', jsonString);
 	var parsedData= JSON.parse(jsonString);
-	var loc='';
-	var repos=parsedData['items'].map(function(obj){
+	var loc={};
+	var repos=parsedData['items'];
+	    /*.map(function(obj){
 	    var robj={};  
-	    robj[obj.owner.login]=obj.full_name;	    
+	    robj[obj.full_name]=obj['owner'];	    
   	    return(robj);		 
 	})
 
-//	console.log(repos);
+	console.log(repos);*/
 
-	for(var login in repos){
-	    console.log(repos[login]);
-	}
-	 /*   options2.path=obj.owner.url;
+	for(var obj in repos){
+//	    console.log(repos[obj].owner['url']);
+	   options2.path=repos[obj].owner['url'];
 	    var req2=https.request(options2,function( res2) {
 		var cb2=function(jstring)
 		{
 		    var lobj={};
-		lobj[obj.login]= JSON.parse(jstring)['location'];
+		    lobj[repos[obj]['full_name']]= JSON.parse(jstring)['location'];
+		    console.log(lobj);
+		    return (lobj);
 		}
-	streamToString(res2,cb2);
+		loc2=	streamToString(res2,cb2);
 	    });
-	    req2.end();
-	    console.log(loc);
+	    
+	    req2.end();	
+	}
 
-/*	for(mykey in repos)
-	console.log(mykey+ " "+repos[mykey]);*/
+	for(mykey in loc)
+	console.log(mykey+ " "+repos[mykey]);
     }	
     
     streamToString(res,cb);
