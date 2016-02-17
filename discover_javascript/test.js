@@ -6,7 +6,7 @@ var options = {
     path: '/search/repositories?q=language:javascript&sort=stars&order=desc',
      headers: {
     'User-Agent': 'Holberton_School',
-    'Authorization': 'token ' + process.env.TOKEN
+    'Authorization': 'token b65bc47da5b1dc6aea9835a3897ea55cad8fef48'
   }
 };
 
@@ -15,7 +15,7 @@ var options2 = {
 //    path: '/users/',
     headers: {
 	'User-Agent': 'Holberton_School',
-	'Authorization': 'token 4ff8ceb13c5e3e9bf23b21446a0df968602059e6'
+	'Authorization': 'token b65bc47da5b1dc6aea9835a3897ea55cad8fef48'
     }
 };
 
@@ -52,29 +52,25 @@ function getlocations()
 	    {
 		options2.path='/users/'+x;
 		var req2=https.request(options2,function(res2){		    
-		    streamToString(res2,cb2);
-//		    console.log(lobj);
+		   streamToString(res2,cb2);
 		});
 		req2.end();
 		req2.on('error',function(e){
 	            console.error(e);
 		});
+		//console.log(lobj);
 	    }
 	    
 	}
-    printlocations();
-}
-
-var printlocations=function (){
-  console.log(lobj);
-    console.log(owners);
+    console.log(lobj);
 }
 
 var cb2= function(jsString){
     var lo=JSON.parse(jsString);
     lobj[lo.login]=lo.location;
 }
-	
+
+
 
 function streamToString(stream, cb) {
     const chunks = [];
