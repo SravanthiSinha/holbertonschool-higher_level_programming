@@ -1,10 +1,13 @@
 require 'httpclient'
+require 'uri'
 
 extheaders = {
   'User-Agent' => 'Holberton_School',
-  'Authorization' => 'token 42ee520bd99c8951da18894d2e0cd0c06d957089'
+  'Authorization' => 'token 1ce0fbaacb310b39ccf742a79fd0de2238a95b8a'
 }
 
 client=HTTPClient.new
-domain='https://api.github.com/search/repositories?q=language:ruby&sort=stars&order=desc'
-print client.get_Cpontent(domain,extheaders)
+uri=URI.parse('https://api.github.com/search/repositories?q=language:ruby&sort=stars&order=desc')
+result= client.get(uri,nil,extheaders)
+puts result.content
+

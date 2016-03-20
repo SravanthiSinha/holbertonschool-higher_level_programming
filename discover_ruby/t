@@ -1,5 +1,6 @@
 require 'httpclient'
 require 'uri'
+require 'json'
 
 extheaders = {
   'User-Agent' => 'Holberton_School',
@@ -9,6 +10,13 @@ extheaders = {
 client=HTTPClient.new
 uri=URI.parse('https://api.github.com/search/repositories?q=language:ruby&sort=stars&order=desc')
 result= client.get(uri,nil,extheaders)
-File.open('/tmp/37', 'w') { |file| file.write(result.content) }
-puts 'The file was saved!'
+hashedresult= JSON.parse(result.content)
 
+items=hashedresult['items']
+items.each do |key, value|
+  key.each do |k,v|
+    if k=='full_name'
+      puts v
+    end
+  end
+end
