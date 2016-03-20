@@ -30,4 +30,4 @@ ownerlocations.each do |fullname,location|
   hash1={'full_name'=>fullname,'location'=> location}
   githublocations.push(hash1)
 end
-puts githublocations.inspect
+puts JSON.generate(githublocations)
