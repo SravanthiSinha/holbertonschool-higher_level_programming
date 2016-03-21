@@ -9,6 +9,8 @@ extheaders = {
 client=HTTPClient.new
 uri=URI.parse('https://api.github.com/search/repositories?q=language:ruby&sort=stars&order=desc')
 result= client.get(uri,nil,extheaders)
-File.open('/tmp/37', 'w') { |file| file.write(result.content) }
+File.open('/tmp/37', 'w') do  |file| 
+  file.puts result.content
+end
 puts 'The file was saved!'
 
