@@ -1,6 +1,8 @@
 import urllib
 import urllib2
 import json
+import Queue
+import threading
 
 request_headers = {
     'User-Agent': 'Holberton_School',
@@ -16,19 +18,28 @@ data= json.loads(res.read())['items']
 
 owners={}
 ownerlocations=[]
-
+threads=[]
 for item in data:
     owners[item['owner']['login']]=item['full_name']
 
-for owner in owners:
+def get_location(owner):
     url='https://api.github.com/users/'+owner
     req=urllib2.Request(url,headers=request_headers)
     res=urllib2.urlopen(req)
     location= json.loads(res.read())['location']
-    #ownerlocations[owner]=Repo(owners[owner],location)
     ownerlocations.append({'location':location, 'full_name':owners[owner]})
+    
+for owner in owners:
+    threads.append(threading.Thread(target=get_location,args=[owner]))
 
-print json.dumps(ownerlocations)
+for x in threads:
+    x.start();
+
+    
+for thread in threads:
+    thread.join()
+
+print json.dumps(ownerlocations,sort_keys=True)
           
 
 
