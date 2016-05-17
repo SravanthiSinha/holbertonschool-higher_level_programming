@@ -1,47 +1,68 @@
-import math
-import sys
-
-'''Class Square'''
+''' Defines a Square() with the listed public and private attributes and methods '''
 class Square():
 
-    ''' Constructor '''
     def __init__(self, side_length):
+        ''' Initializes the square and the __side_length and name attributes '''
         self.__side_length = side_length
         self.name = ''
-        
+
+    def __del__(self):
+        ''' Deletes the square '''
+        pass
+
     def __str__(self):
-        self.__printline('*','*',self.__side_length)
-        
-    def __printline(self,c,m,n):
-        if c == m :
-            for i in range(1,n):
-                sys.stdout.write(c)    
+        ''' Returns the layout of the square to be printed '''
+        if self.__side_length <= 0:
+            return ''
+        elif self.__side_length == 1:
+            return '*'
         else:
-            sys.std.write(c)
-            for i in range(1,n-2):
-                sys.stdout.write(m)    
-            sys.stdout.write(m)
-                
-    '''   Getter for color '''
-    def get_color(self):
-        return self.__color
+            i = 2;
+            square = ''
+            square += self.__print_top_or_bottom() + '\n'
+            while i < self.__side_length:
+                square += self.__print_middle() + '\n'
+                i += 1
+            square += self.__print_top_or_bottom()
+            return square
 
-    ''' Setter for color '''
-    def set_color(self, color):
-        self.__color = color;
+    def __print_top_or_bottom(self):
+        ''' Creates the top & bottom lines of the square to be printed '''
+        i = 0;
+        line = ''
+        while i < self.__side_length:
+            line += '*'
+            i += 1
+        return line
 
-    ''' Getter for center'''
+    def __print_middle(self):
+        ''' Creates the middle lines of the square to be printed '''
+        i = 0;
+        line = ''
+        while i < self.__side_length:
+            if i == 0 or i == self.__side_length - 1:
+                line += '*'
+            else:
+                line += ' '
+            i += 1
+        return line
+
+    def set_center(self, array):
+        ''' Sets the center of the square at [x, y] coordinates '''
+        self.__center = array
+
     def get_center(self):
+        ''' Returns the center of the [x, y] coordinates of the square '''
         return self.__center
 
-    ''' Setter for center'''
-    def set_center(self, center):
-        self.__center = center
+    def set_color(self, color):
+        ''' Sets the color of the square '''
+        self.__color = color
 
-        
-    ''' calculate and return the area of the circle'''
+    def get_color(self):
+        ''' Returns the color of the square '''
+        return self.__color
+
     def area(self):
-        return self.__side_length**2
-
-
-        
+        ''' Calculates and returns the area of the square '''
+        return self.__side_length ** 2
