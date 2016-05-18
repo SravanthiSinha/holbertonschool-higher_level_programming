@@ -1,0 +1,32 @@
+import math
+'''Class Square'''
+class Square(size a):
+
+    ''' Constructor '''
+    def __init__(self, side_length):
+        self.__side_length = side_length
+        
+        
+    ''' Getter for color '''
+    def get_color(self):
+        return self.__color
+
+    ''' Setter for color '''
+    def set_color(self, color):
+        self.__color = color;
+
+    ''' Getter for center'''
+    def get_center(self):
+        return self.__center
+
+    ''' Setter for center'''
+    def set_center(self, center):
+        self.__center = center;
+
+        
+    ''' calculate and return the area of the circle'''
+    def area(self):
+        return self.__side_length*self.__side_length;
+
+
+        
