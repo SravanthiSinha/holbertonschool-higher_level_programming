@@ -7,6 +7,8 @@ print "I have %d members in my family" % len(my_family)
 # new baby!
 b = Baby(3, "Tony", [7, 4, 2015], "Male", "Green")
 b.last_name = "Foto"
-my_family.append(b)
+my_family.append(b.json())
 
-save_to_file(my_family)
+print "I have %d members in my family" % len(my_family)
+
+save_to_file(my_family,'test.json')
