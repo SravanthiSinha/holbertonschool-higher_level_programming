@@ -95,7 +95,7 @@ class Person():
         return dict
 
     def load_from_json(self,json):
-        if type(id) is not dict:
+        if type(json) is not dict:
             raise Exception("json is not valid")
         self.__first_name = json['first_name']
         self.last_name = json['lastname']
@@ -104,9 +104,35 @@ class Person():
         self.__genre = json['genre']
         self.__eyes_color = json['eyes_color']
         self.is_married_to=json['is_married_to']
+    
+    ''' return True if the Class is Adult or Senior '''
+    def can_be_married(self):
+         return True if (self.getname()== 'Adult') or (self.getname()== 'Senior') else False 
+
+    '''return True if is_married_to is different of 0'''
+    def is_married(self):
+        return True if self.is_married_to != 0 else False
+
+    ''' will unlink 2 persons => assign is_married_to of each person to 0. Don't change the last_name, it's too late!'''
+    def divorce(self, p):
+        self.is_married_to == 0
+        p.is_married_to == 0
+
+    '''assign is_married_to with the id of the other person (assign both person by crossing id) and change the last_name of the '''
+    def just_married_with(self, p):
+        self.is_married_to = p.get_id()
+        p.is_married_to=self.get_id()
+        if(self.get_genre == 'Female'):
+            self.last_name = p.last_name
+        else:
+            p.last_name = self.last_name
 
 class Baby(Person):
-    
+
+    def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
+        Person.__init__(self, id, first_name, date_of_birth, genre, eyes_color)
+        self.is_married_to = 0
+
     '''return True if the Class is Teenager or Adult'''
     def can_run(self):
         return True if (self.getname()== 'Teenager') or (self.getname()== 'Adult') else False 
@@ -135,20 +161,18 @@ class Baby(Person):
 
     ''' will unlink 2 persons => assign is_married_to of each person to 0. Don't change the last_name, it's too late!'''
     def divorce(self, p):
-        return True if (self.is_married_to == 0) and (p.is_married_to == 0) else False
+        self.is_married_to == 0
+        p.is_married_to == 0
 
     '''assign is_married_to with the id of the other person (assign both person by crossing id) and change the last_name of the '''
     def just_married_with(self, p):
-        if (self.is_married_to == p.is_married_to):
-            if(self.get_genre == 'Female'):
-                self.last_name = p.last_name
-            else:
-                p.last_name = self.last_name
-            return True        
+        self.is_married_to == p._id
+        p.is_married_to=self.__id
+        if(self.get_genre == 'Female'):
+            self.last_name = p.last_name
         else:
-            False
-    
-        
+            p.last_name = self.last_name
+
 
 
 class Adult(Person):
@@ -171,7 +195,38 @@ class Adult(Person):
     def can_vote(self):
          return True if (self.getname()== 'Adult') or (self.getname()== 'Senior') else False 
 
+
+    ''' return True if the Class is Adult or Senior '''
+    def can_be_married(self):
+         return True if (self.getname()== 'Adult') or (self.getname()== 'Senior') else False 
+
+    '''return True if is_married_to is different of 0'''
+    def is_married(self):
+        return True if self.is_married_to != 0 else False
+
+    ''' will unlink 2 persons => assign is_married_to of each person to 0. Don't change the last_name, it's too late!'''
+    def divorce(self, p):
+        self.is_married_to == 0
+        p.is_married_to == 0
+
+    '''assign is_married_to with the id of the other person (assign both person by crossing id) and change the last_name of the '''
+    def just_married_with(self, p):
+        self.is_married_to == p._id
+        p.is_married_to=self.__id
+        if(self.get_genre == 'Female'):
+            self.last_name = p.last_name
+        else:
+            p.last_name = self.last_name
+    
+    
+
+
 class Teenager(Person):
+
+    def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
+        Person.__init__(self, id, first_name, date_of_birth, genre, eyes_color)
+        self.is_married_to = 0
+
     
     '''return True if the Class is Teenager or Adult'''
     def can_run(self):
@@ -190,6 +245,34 @@ class Teenager(Person):
     '''return True if the Class is Adult or Senior'''
     def can_vote(self):
          return True if (self.getname()== 'Adult') or (self.getname()== 'Senior') else False 
+
+
+    ''' return True if the Class is Adult or Senior '''
+    def can_be_married(self):
+         return True if (self.getname()== 'Adult') or (self.getname()== 'Senior') else False 
+
+    '''return True if is_married_to is different of 0'''
+    def is_married(self):
+        return True if self.is_married_to != 0 else False
+
+    ''' will unlink 2 persons => assign is_married_to of each person to 0. Don't change the last_name, it's too late!'''
+    def divorce(self, p):
+        self.is_married_to == 0
+        p.is_married_to == 0
+
+    '''assign is_married_to with the id of the other person (assign both person by crossing id) and change the last_name of the '''
+    def just_married_with(self, p):
+        self.is_married_to == p._id
+        p.is_married_to=self.__id
+        if(self.get_genre == 'Female'):
+            self.last_name = p.last_name
+        else:
+            p.last_name = self.last_name
+    
+
+    
+        
+        
 
 class Senior(Person):
 
@@ -212,12 +295,38 @@ class Senior(Person):
     def can_vote(self):
          return True if (self.getname()== 'Adult') or (self.getname()== 'Senior') else False 
 
+    ''' return True if the Class is Adult or Senior '''
+    def can_be_married(self):
+         return True if (self.getname()== 'Adult') or (self.getname()== 'Senior') else False 
+
+    ''' return True if the Class is Adult or Senior '''
+    def can_be_married(self):
+         return True if (self.getname()== 'Adult') or (self.getname()== 'Senior') else False 
+
+    '''return True if is_married_to is different of 0'''
+    def is_married(self):
+        return True if self.is_married_to != 0 else False
+
+    ''' will unlink 2 persons => assign is_married_to of each person to 0. Don't change the last_name, it's too late!'''
+    def divorce(self, p):
+        self.is_married_to == 0
+        p.is_married_to == 0
+
+    '''assign is_married_to with the id of the other person (assign both person by crossing id) and change the last_name of the '''
+    def just_married_with(self, p):
+        self.is_married_to == p._id
+        p.is_married_to=self.__id
+        if(self.get_genre == 'Female'):
+            self.last_name = p.last_name
+        else:
+            p.last_name = self.last_name
+    
 
 def save_to_file(list, filename):
     with open(filename,'w') as outfile:
-        outfile.seek(0)        
-        outfile.write(json.dumps(list,indent=2,sort_keys=True)) #write the updated version 
-        outfile.truncate() #truncate the remainder of the data in the file
+        for person in list:
+            outfile.write(json.dumps(person.json(),indent=2))
+
 
 def load_from_file(filename):
     if type(filename) is not str or (not os.path.isfile(filename)) :
@@ -225,6 +334,12 @@ def load_from_file(filename):
     else:
         with open(filename) as datafile:
             data = json.load(datafile)
-            return data
+            Persons = []
+            for d in data["Persons"]:
+                p = Person(0,'',[12,12,12],"Male","Blue")
+                p.load_from_json(d)
+                Persons.append(p)                
+            return Persons
+
     
 

@@ -1,28 +1,29 @@
-[
-  {
-    "id": 1,
-    "first_name": "sravanthi",
-    "lastname": "sinha",
-    "date_of_birth": [
-      20,
-      2,
-      1895
-    ],
-    "genre": "mmmm",
-    "eye_color": "Blue",
-    "is_married_to": 2
-  },
-   {
-    "id": 2,
-    "first_name": "sravanthi",
-    "lastname": "sinha",
-    "date_of_birth": [
-      20,
-      2,
-      1895
-    ],
-    "genre": "mmmm",
-    "eye_color": "Blue",
-    "is_married_to": 2
-  }
-]
+{
+  "Persons": [
+    { 
+      "id": 1,
+      "first_name": "sri",
+     "lastname": "pamu",
+      "date_of_birth": [
+        20,
+       2,
+       1895
+      ],
+      "genre": "Male",
+      "eyes_color": "Blue",
+      "is_married_to": 0
+    },
+    { 
+      "id": 2,
+      "first_name": "sravanthi",
+     "lastname": "sinha",
+      "date_of_birth": [
+        20,
+       2,
+       1895
+      ],
+      "genre": "Female",
+      "eyes_color": "Blue",
+      "is_married_to": 0
+    }
+]}

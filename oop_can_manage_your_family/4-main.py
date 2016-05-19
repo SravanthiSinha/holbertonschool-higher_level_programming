@@ -13,4 +13,4 @@ marc.just_married_with(vanessa)
 if marc.is_married():
     print "Marc is NOW married"
 
-save_to_file(my_family)
+save_to_file(my_family,'new_family.json')
