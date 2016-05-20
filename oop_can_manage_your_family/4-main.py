@@ -13,10 +13,4 @@ marc.just_married_with(vanessa)
 if marc.is_married():
     print "Marc is NOW married"
 
-# new baby!
-b = Baby(3, "Tony", [7, 4, 2015], "Male", "Green")
-b.last_name = "Foto"
-my_family.append(b)
-marc.just_married_with(vanessa)
-
-save_to_file(my_family,'new_family.json')
+save_to_file(my_family, "my_family.json")

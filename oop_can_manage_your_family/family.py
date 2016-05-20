@@ -104,7 +104,7 @@ class Person():
             raise Exception("json is not valid")
         self.kind = str(json['kind'])
         self.__first_name = str(json['first_name'])
-        self.last_name = str(json['lastname'])
+        self.last_name = str(json['last_name'])
         self.__id = json['id']
         self.__date_of_birth = json['date_of_birth']
         self.__genre = str(json['genre'])
@@ -173,7 +173,7 @@ class Baby(Person):
             raise Exception("p is not an Adult of Senior")
         if (not p.can_have_child()) or(not self.can_have_child()):
             raise Exception("Can't have baby")        
-        b = Baby(id,firstname,date_of_birth,genre,eyes_color)
+        b = Baby(id,first_name,date_of_birth,genre,eyes_color)
         p.children.append(id)
         self.children.append(id)        
         return b
@@ -246,7 +246,7 @@ class Adult(Person):
             raise Exception("p is not an Adult of Senior")
         if (not p.can_have_child()) or(not self.can_have_child()):
             raise Exception("Can't have baby")        
-        b = Baby(id,firstname,date_of_birth,genre,eyes_color)
+        b = Baby(id,first_name,date_of_birth,genre,eyes_color)
         p.children.append(id)
         self.children.append(id)        
         return b
@@ -318,7 +318,7 @@ class Teenager(Person):
             raise Exception("p is not an Adult of Senior")
         if (not p.can_have_child()) or(not self.can_have_child()):
             raise Exception("Can't have baby")        
-        b = Baby(id,firstname,date_of_birth,genre,eyes_color)
+        b = Baby(id,first_name,date_of_birth,genre,eyes_color)
         p.children.append(id)
         self.children.append(id)        
         return b
@@ -396,7 +396,7 @@ class Senior(Person):
             raise Exception("p is not an Adult of Senior")
         if (not p.can_have_child()) or(not self.can_have_child()):
             raise Exception("Can't have baby")        
-        b = Baby(id,firstname,date_of_birth,genre,eyes_color)
+        b = Baby(id,first_name,date_of_birth,genre,eyes_color)
         p.children.append(id)
         self.children.append(id)        
         return b
