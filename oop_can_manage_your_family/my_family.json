@@ -1,30 +1,47 @@
 [
-  { 
-    "id": 1,
-    "kind":"Adult",
-    "first_name": "sravanthi",
-    "lastname": "sinha",
-    "date_of_birth": [
-      20,
-      2,
-      1895
-      ],
-    "genre": "Male",
-    "eyes_color": "Blue",
-    "is_married_to": 0
-    },
-    { 
-    "id": 2,
-    "kind":"Adult",
-    "first_name": "sravanthi",
-    "lastname": "sinha",
+  {
+    "children": [],
     "date_of_birth": [
       20,
       2,
       1895
     ],
-    "genre": "Female",
+    "first_name": "sravanthi",
+    "last_name": "sinha",
+    "is_married_to": 2,
     "eyes_color": "Blue",
-    "is_married_to": 0
+    "genre": "Male",
+    "id": 1,
+    "kind": "Adult"
+  },
+  {
+    "children": [],
+    "date_of_birth": [
+      20,
+      2,
+      1895
+    ],
+    "first_name": "sri",
+    "last_name": "pamu",
+    "is_married_to": 2,
+    "eyes_color": "Blue",
+    "genre": "Male",
+    "id": 2,
+    "kind": "Adult"
+  },
+  {
+    "children": [],
+    "date_of_birth": [
+      20,
+      2,
+      1895
+    ],
+    "first_name": "sri",
+    "last_name": "pamu",
+    "is_married_to": 0,
+    "eyes_color": "Blue",
+    "genre": "Male",
+    "id": 4,
+    "kind": "Baby"
   }
 ]
