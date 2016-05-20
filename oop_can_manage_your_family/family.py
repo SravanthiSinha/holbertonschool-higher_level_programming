@@ -168,14 +168,25 @@ class Baby(Person):
         return True if (self.getname()== 'Adult') else False
 
     ''' return a Baby object and add to children the new id on self and p'''
-    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color = ''):
         if (p is None) or ((p.kind != 'Adult') and (p.kind !='Senior')):
             raise Exception("p is not an Adult of Senior")
         if (not p.can_have_child()) or(not self.can_have_child()):
             raise Exception("Can't have baby")        
+        if self.get_eyes_color() == 'Blue' and p.get_eyes_color() == 'Blue' :
+            eyes_color = 'Blue'
+        if self.get_eyes_color() == 'Green' and p.get_eyes_color() == 'Green' :
+            eyes_color = 'Green'
+        if self.get_eyes_color() == 'Blue' and p.get_eyes_color() == 'Green' :
+            eyes_color = 'Blue'
+        if p.get_eyes_color() == 'Brown' :
+            eyes_color = 'Brown'
         b = Baby(id,first_name,date_of_birth,genre,eyes_color)
-        p.children.append(id)
-        self.children.append(id)        
+        if id not in p.children:
+            p.children.append(id)
+        if id not in self.children:
+            self.children.append(id)        
+
         return b
 
     '''link 2 persons by adding c.get_id() to self.children'''
@@ -241,16 +252,28 @@ class Adult(Person):
         return True if (self.getname()== 'Adult') else False
 
     ''' return a Baby object and add to children the new id on self and p'''
-    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color = ''):
         if (p is None) or ((p.kind != 'Adult') and (p.kind !='Senior')):
             raise Exception("p is not an Adult of Senior")
         if (not p.can_have_child()) or(not self.can_have_child()):
             raise Exception("Can't have baby")        
+        if self.get_eyes_color() == 'Blue' and p.get_eyes_color() == 'Blue' :
+            eyes_color = 'Blue'
+        if self.get_eyes_color() == 'Green' and p.get_eyes_color() == 'Green' :
+            eyes_color = 'Green'
+        if self.get_eyes_color() == 'Blue' and p.get_eyes_color() == 'Green' :
+            eyes_color = 'Blue'
+        if p.get_eyes_color() == 'Brown' :
+            eyes_color = 'Brown'
+
         b = Baby(id,first_name,date_of_birth,genre,eyes_color)
-        p.children.append(id)
-        self.children.append(id)        
+        if id not in p.children:
+            p.children.append(id)
+        if id not in self.children:
+            self.children.append(id)        
         return b
 
+ 
     '''link 2 persons by adding c.get_id() to self.children'''
     def adopt_child(self, c):
        if (not self.can_have_child()):
@@ -313,16 +336,27 @@ class Teenager(Person):
         return True if (self.getname()== 'Adult') else False
 
     ''' return a Baby object and add to children the new id on self and p'''
-    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color = ''):
         if (p is None) or ((p.kind != 'Adult') and (p.kind !='Senior')):
             raise Exception("p is not an Adult of Senior")
         if (not p.can_have_child()) or(not self.can_have_child()):
             raise Exception("Can't have baby")        
+        if self.get_eyes_color() == 'Blue' and p.get_eyes_color() == 'Blue' :
+            eyes_color = 'Blue'
+        if self.get_eyes_color() == 'Green' and p.get_eyes_color() == 'Green' :
+            eyes_color = 'Green'
+        if self.get_eyes_color() == 'Blue' and p.get_eyes_color() == 'Green' :
+            eyes_color = 'Blue'
+        if p.get_eyes_color() == 'Brown' :
+            eyes_color = 'Brown'
         b = Baby(id,first_name,date_of_birth,genre,eyes_color)
-        p.children.append(id)
-        self.children.append(id)        
+        if id not in p.children:
+            p.children.append(id)
+        if id not in self.children:
+            self.children.append(id)        
         return b
 
+ 
     '''link 2 persons by adding c.get_id() to self.children'''
     def adopt_child(self, c):
        if (not self.can_have_child()):
@@ -373,7 +407,7 @@ class Senior(Person):
         self.is_married_to = 0
         p.is_married_to = 0
 
-
+    '''assign is_married_to with the id of the other person (assign both person by crossing id) and change the last_name of the '''
     def just_married_with(self, p):
         if (self.is_married_to != 0)  or (p.is_married_to !=0):
             raise Exception("Already married")           
@@ -391,14 +425,24 @@ class Senior(Person):
         return True if (self.getname()== 'Adult') else False
 
     ''' return a Baby object and add to children the new id on self and p'''
-    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color = ''):
         if (p is None) or ((p.kind != 'Adult') and (p.kind !='Senior')):
             raise Exception("p is not an Adult of Senior")
         if (not p.can_have_child()) or(not self.can_have_child()):
             raise Exception("Can't have baby")        
+        if self.get_eyes_color() == 'Blue' and p.get_eyes_color() == 'Blue' :
+            eyes_color = 'Blue'
+        if self.get_eyes_color() == 'Green' and p.get_eyes_color() == 'Green' :
+            eyes_color = 'Green'
+        if self.get_eyes_color() == 'Blue' and p.get_eyes_color() == 'Green' :
+            eyes_color = 'Blue'
+        if p.get_eyes_color() == 'Brown' :
+            eyes_color = 'Brown'
         b = Baby(id,first_name,date_of_birth,genre,eyes_color)
-        p.children.append(id)
-        self.children.append(id)        
+        if id not in p.children:
+            p.children.append(id)
+        if id not in self.children:
+            self.children.append(id)        
         return b
 
     '''link 2 persons by adding c.get_id() to self.children'''
