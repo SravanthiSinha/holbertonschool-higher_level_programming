@@ -1,25 +1,30 @@
-{
-  "first_name": "sri", 
-  "last_name": "pamu", 
-  "is_married_to": 2, 
-  "eyes_color": "Blue", 
-  "date_of_birth": [
-    20, 
-    2, 
-    1895
-  ], 
-  "genre": "Male", 
-  "id": 1
-}{
-  "first_name": "sravanthi", 
-  "last_name": "pamu", 
-  "is_married_to": 1, 
-  "eyes_color": "Blue", 
-  "date_of_birth": [
-    20, 
-    2, 
-    1895
-  ], 
-  "genre": "Female", 
-  "id": 2
-}
+[
+  {
+    "date_of_birth": [
+      20, 
+      2, 
+      1895
+    ], 
+    "first_name": "sravanthi", 
+    "last_name": "sinha", 
+    "is_married_to": 2, 
+    "eyes_color": "Blue", 
+    "genre": "Male", 
+    "id": 1, 
+    "kind": "Adult"
+  }, 
+  {
+    "date_of_birth": [
+      20, 
+      2, 
+      1895
+    ], 
+    "first_name": "sravanthi", 
+    "last_name": "sinha", 
+    "is_married_to": 1, 
+    "eyes_color": "Blue", 
+    "genre": "Female", 
+    "id": 2, 
+    "kind": "Adult"
+  }
+]

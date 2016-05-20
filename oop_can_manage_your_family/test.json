@@ -1,37 +1,44 @@
-{
-  "date_of_birth": [
-    20, 
-    2, 
-    1895
-  ], 
-  "eyes_color": "Blue", 
-  "first_name": "sravanthi", 
-  "genre": "Male", 
-  "id": 1, 
-  "is_married_to": 2, 
-  "last_name": "sinha"
-}{
-  "date_of_birth": [
-    20, 
-    2, 
-    1895
-  ], 
-  "eyes_color": "Blue", 
-  "first_name": "sravanthi", 
-  "genre": "Female", 
-  "id": 2, 
-  "is_married_to": 1, 
-  "last_name": "sinha"
-}{
-  "date_of_birth": [
-    7, 
-    4, 
-    2015
-  ], 
-  "eyes_color": "Green", 
-  "first_name": "Tony", 
-  "genre": "Male", 
-  "id": 3, 
-  "is_married_to": 0, 
-  "last_name": "Foto"
-}
+[
+  {
+    "date_of_birth": [
+      20, 
+      2, 
+      1895
+    ], 
+    "first_name": "sravanthi", 
+    "last_name": "sinha", 
+    "is_married_to": 2, 
+    "eyes_color": "Blue", 
+    "genre": "Male", 
+    "id": 1, 
+    "kind": "Adult"
+  }, 
+  {
+    "date_of_birth": [
+      20, 
+      2, 
+      1895
+    ], 
+    "first_name": "sravanthi", 
+    "last_name": "sinha", 
+    "is_married_to": 1, 
+    "eyes_color": "Blue", 
+    "genre": "Female", 
+    "id": 2, 
+    "kind": "Adult"
+  }, 
+  {
+    "date_of_birth": [
+      7, 
+      4, 
+      2015
+    ], 
+    "first_name": "Tony", 
+    "last_name": "Foto", 
+    "is_married_to": 0, 
+    "eyes_color": "Green", 
+    "genre": "Male", 
+    "id": 3, 
+    "kind": "Baby"
+  }
+]
