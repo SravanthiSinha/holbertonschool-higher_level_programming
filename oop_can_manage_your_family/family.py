@@ -10,7 +10,7 @@ class Person():
 
     def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
         
-        if type(id) is not int:
+        if type(id) is not int or id < 0:
             raise Exception("id is not an integer")
         if type(first_name) is not str:
             raise Exception("string is not a string")
@@ -28,7 +28,10 @@ class Person():
         self.__date_of_birth = date_of_birth
         self.__genre = genre;
         self.__eyes_color = eyes_color         
-
+        self.children = []
+        self.last_name=''
+        self.is_married_to = 0
+        
     def __str__(self):
         '''base class description) => return a string with first_name and last_name attached by a space '''
         return self.__first_name+" "+self.last_name
@@ -91,7 +94,8 @@ class Person():
             'genre' : self.__genre,
             'eyes_color' : self.__eyes_color,
             'is_married_to' :self.is_married_to,
-            'kind':self.getname()
+            'kind':self.getname(),
+            'children' : self.children
         }
         return dict
 
@@ -106,12 +110,13 @@ class Person():
         self.__genre = str(json['genre'])
         self.__eyes_color = str(json['eyes_color'])
         self.is_married_to=json['is_married_to']
+        self.children =json['children']
 
 class Baby(Person):
 
     def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
         Person.__init__(self, id, first_name, date_of_birth, genre, eyes_color)
-        self.is_married_to = 0
+        
 
     '''return True if the Class is Teenager or Adult'''
     def can_run(self):
@@ -158,13 +163,33 @@ class Baby(Person):
         else:
             p.last_name = self.last_name
 
+    '''return True if the Class is Adult '''
+    def can_have_child(self):
+        return True if (self.getname()== 'Adult') else False
+
+    ''' return a Baby object and add to children the new id on self and p'''
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+        if (p is None) or ((p.kind != 'Adult') and (p.kind !='Senior')):
+            raise Exception("p is not an Adult of Senior")
+        if (not p.can_have_child()) or(not self.can_have_child()):
+            raise Exception("Can't have baby")        
+        b = Baby(id,firstname,date_of_birth,genre,eyes_color)
+        p.children.append(id)
+        self.children.append(id)        
+        return b
+
+    '''link 2 persons by adding c.get_id() to self.children'''
+    def adopt_child(self, c):
+       if (not self.can_have_child()):
+            raise Exception("Can't adopt child")
+       self.children.append(c.get_id())
+        
 
 class Adult(Person):
 
     def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
         Person.__init__(self, id, first_name, date_of_birth, genre, eyes_color)
-        self.is_married_to = 0
-
+        
     
     '''return True if the Class is Teenager or Adult'''
     def can_run(self):
@@ -211,14 +236,32 @@ class Adult(Person):
         else:
             p.last_name = self.last_name
 
+    '''return True if the Class is Adult '''
+    def can_have_child(self):
+        return True if (self.getname()== 'Adult') else False
 
+    ''' return a Baby object and add to children the new id on self and p'''
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+        if (p is None) or ((p.kind != 'Adult') and (p.kind !='Senior')):
+            raise Exception("p is not an Adult of Senior")
+        if (not p.can_have_child()) or(not self.can_have_child()):
+            raise Exception("Can't have baby")        
+        b = Baby(id,firstname,date_of_birth,genre,eyes_color)
+        p.children.append(id)
+        self.children.append(id)        
+        return b
+
+    '''link 2 persons by adding c.get_id() to self.children'''
+    def adopt_child(self, c):
+       if (not self.can_have_child()):
+            raise Exception("Can't adopt child")
+       self.children.append(c.get_id())
 
 class Teenager(Person):
 
     def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
         Person.__init__(self, id, first_name, date_of_birth, genre, eyes_color)
-        self.is_married_to = 0
-
+        
     
     '''return True if the Class is Teenager or Adult'''
     def can_run(self):
@@ -265,12 +308,32 @@ class Teenager(Person):
         else:
             p.last_name = self.last_name
 
+    '''return True if the Class is Adult '''
+    def can_have_child(self):
+        return True if (self.getname()== 'Adult') else False
+
+    ''' return a Baby object and add to children the new id on self and p'''
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+        if (p is None) or ((p.kind != 'Adult') and (p.kind !='Senior')):
+            raise Exception("p is not an Adult of Senior")
+        if (not p.can_have_child()) or(not self.can_have_child()):
+            raise Exception("Can't have baby")        
+        b = Baby(id,firstname,date_of_birth,genre,eyes_color)
+        p.children.append(id)
+        self.children.append(id)        
+        return b
+
+    '''link 2 persons by adding c.get_id() to self.children'''
+    def adopt_child(self, c):
+       if (not self.can_have_child()):
+            raise Exception("Can't adopt child")
+       self.children.append(c.get_id())
+
 class Senior(Person):
 
     def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
         Person.__init__(self, id, first_name, date_of_birth, genre, eyes_color)
-        self.is_married_to = 0
-
+       
     '''return True if the Class is Teenager or Adult'''
     def can_run(self):
         return True if (self.getname()== 'Teenager') or (self.getname()== 'Adult') else False 
@@ -322,7 +385,27 @@ class Senior(Person):
             self.last_name = p.last_name
         else:
             p.last_name = self.last_name
-    
+
+    '''return True if the Class is Adult '''
+    def can_have_child(self):
+        return True if (self.getname()== 'Adult') else False
+
+    ''' return a Baby object and add to children the new id on self and p'''
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+        if (p is None) or ((p.kind != 'Adult') and (p.kind !='Senior')):
+            raise Exception("p is not an Adult of Senior")
+        if (not p.can_have_child()) or(not self.can_have_child()):
+            raise Exception("Can't have baby")        
+        b = Baby(id,firstname,date_of_birth,genre,eyes_color)
+        p.children.append(id)
+        self.children.append(id)        
+        return b
+
+    '''link 2 persons by adding c.get_id() to self.children'''
+    def adopt_child(self, c):
+       if (not self.can_have_child()):
+            raise Exception("Can't adopt child")
+       self.children.append(c.get_id())
 
 def save_to_file(list, filename):
     with open(filename,'w') as outfile:
@@ -351,6 +434,3 @@ def load_from_file(filename):
                 p.load_from_json(d)
                 Persons.append(p)                
             return Persons
-
-    
-
