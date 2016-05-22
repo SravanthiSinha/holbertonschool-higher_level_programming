@@ -34,8 +34,12 @@ class Person():
         
     def __str__(self):
         '''base class description) => return a string with first_name and last_name attached by a space '''
-        return self.__first_name+" "+self.last_name
+        return str(self.__first_name)+" "+str(self.last_name)
 
+    def __iter__(self):
+        '''base class description) => return a string with first_name and last_name attached by a space '''
+        return str(self.__first_name)+" "+str(self.last_name)
+ 
     def is_male(self):
         ''' return True if the person is a Male'''
         return True if self.__genre == "Male" else False
@@ -117,7 +121,6 @@ class Baby(Person):
     def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
         Person.__init__(self, id, first_name, date_of_birth, genre, eyes_color)
         
-
     '''return True if the Class is Teenager or Adult'''
     def can_run(self):
         return True if (self.getname()== 'Teenager') or (self.getname()== 'Adult') else False 
@@ -186,7 +189,6 @@ class Baby(Person):
             p.children.append(id)
         if id not in self.children:
             self.children.append(id)        
-
         return b
 
     '''link 2 persons by adding c.get_id() to self.children'''
@@ -194,6 +196,42 @@ class Baby(Person):
        if (not self.can_have_child()):
             raise Exception("Can't adopt child")
        self.children.append(c.get_id())
+
+
+    '''Search in list_person (list of Person) parents of self => return a list of Person'''
+    def who_are_my_parents(self, list_person):
+        parents = []
+        parentsid= []
+        if not isinstance(list_person, list):
+            raise Exception("list_person is not valid")
+        for person in list_person:
+            if person.getname() == 'Person':
+                raise Exception("list_person is not valid")
+            else:
+                if self.get_id() in person.children:
+                    if id(person) not in parentsid:
+                        parents.append(person)
+                        parentsid.append(id(person))
+        return parents
+
+    '''Search in list_person (list of Person) grandparents of self => return a list of Person'''
+    def who_are_my_grand_parents(self, list_person):
+        grandparents = []
+        parents = []
+        grandparentsid = []
+        if not isinstance(list_person, list):
+            raise Exception("list_person is not valid")
+        parents = self.who_are_my_parents(list_person)
+        for person in list_person:
+            if person.getname() == 'Person':
+                raise Exception("list_person is not valid")
+            else:
+                for parent in parents:
+                    for x in parent.who_are_my_parents(list_person):
+                        if id(x) not in grandparentsid:
+                            grandparents.append(x)
+                            grandparentsid.append(id(x))
+        return grandparents
         
 
 class Adult(Person):
@@ -201,7 +239,7 @@ class Adult(Person):
     def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
         Person.__init__(self, id, first_name, date_of_birth, genre, eyes_color)
         
-    
+
     '''return True if the Class is Teenager or Adult'''
     def can_run(self):
         return True if (self.getname()== 'Teenager') or (self.getname()== 'Adult') else False 
@@ -279,6 +317,42 @@ class Adult(Person):
        if (not self.can_have_child()):
             raise Exception("Can't adopt child")
        self.children.append(c.get_id())
+
+
+    '''Search in list_person (list of Person) parents of self => return a list of Person'''
+    def who_are_my_parents(self, list_person):
+        parents = []
+        parentsid= []
+        if not isinstance(list_person, list):
+            raise Exception("list_person is not valid")
+        for person in list_person:
+            if person.getname() == 'Person':
+                raise Exception("list_person is not valid")
+            else:
+                if self.get_id() in person.children:
+                    if id(person) not in parentsid:
+                        parents.append(person)
+                        parentsid.append(id(person))
+        return parents
+
+    '''Search in list_person (list of Person) grandparents of self => return a list of Person'''
+    def who_are_my_grand_parents(self, list_person):
+        grandparents = []
+        parents = []
+        grandparentsid = []
+        if not isinstance(list_person, list):
+            raise Exception("list_person is not valid")
+        parents = self.who_are_my_parents(list_person)
+        for person in list_person:
+            if person.getname() == 'Person':
+                raise Exception("list_person is not valid")
+            else:
+                for parent in parents:
+                    for x in parent.who_are_my_parents(list_person):
+                        if id(x) not in grandparentsid:
+                            grandparents.append(x)
+                            grandparentsid.append(id(x))
+        return grandparents
 
 class Teenager(Person):
 
@@ -362,6 +436,43 @@ class Teenager(Person):
        if (not self.can_have_child()):
             raise Exception("Can't adopt child")
        self.children.append(c.get_id())
+
+
+    '''Search in list_person (list of Person) parents of self => return a list of Person'''
+    def who_are_my_parents(self, list_person):
+        parents = []
+        parentsid= []
+        if not isinstance(list_person, list):
+            raise Exception("list_person is not valid")
+        for person in list_person:
+            if person.getname() == 'Person':
+                raise Exception("list_person is not valid")
+            else:
+                if self.get_id() in person.children:
+                    if id(person) not in parentsid:
+                        parents.append(person)
+                        parentsid.append(id(person))
+        return parents
+
+    '''Search in list_person (list of Person) grandparents of self => return a list of Person'''
+    def who_are_my_grand_parents(self, list_person):
+        grandparents = []
+        parents = []
+        grandparentsid = []
+        if not isinstance(list_person, list):
+            raise Exception("list_person is not valid")
+        parents = self.who_are_my_parents(list_person)
+        for person in list_person:
+            if person.getname() == 'Person':
+                raise Exception("list_person is not valid")
+            else:
+                for parent in parents:
+                    for x in parent.who_are_my_parents(list_person):
+                        if id(x) not in grandparentsid:
+                            grandparents.append(x)
+                            grandparentsid.append(id(x))
+        return grandparents
+
 
 class Senior(Person):
 
@@ -451,6 +562,26 @@ class Senior(Person):
             raise Exception("Can't adopt child")
        self.children.append(c.get_id())
 
+
+    def who_are_my_grandchildren(self, list_person):
+        if not isinstance(list_person, list):
+            raise Exception("list_person is not valid")
+        children = self.children
+        grandchildrenids= []
+        grandchildren = []
+        for child in children:
+            for person in list_person:
+                if person.get_id() == child:
+                    for c in person.children:
+                        grandchildrenids.append(c)
+
+        for id in grandchildrenids:
+            for person in list_person:
+                if person.get_id() == id:
+                    grandchildren.append(person)
+                
+        return grandchildren
+
 def save_to_file(list, filename):
     with open(filename,'w') as outfile:
         list_of_jsonstrings = []
@@ -464,17 +595,18 @@ def load_from_file(filename):
         Exception("filename is not valid or doesn't exist")
     else:
         with open(filename) as datafile:
-            data = json.load(datafile)
             Persons = []
-            for d in data:
-                if d['kind'] == 'Adult':
-                    p = Adult(0,'',[12,12,12],"Male","Blue")
-                if d['kind'] == 'Baby':
-                    p = Baby(0,'',[12,12,12],"Male","Blue")
-                if d['kind'] == 'Senior':
-                    p = Senior(0,'',[12,12,12],"Male","Blue")
-                if d['kind'] == 'Teenager':
-                    p = Teenager(0,'',[12,12,12],"Male","Blue")                
-                p.load_from_json(d)
-                Persons.append(p)                
+            if os.stat(filename).st_size != 0:
+                data = json.load(datafile)
+                for d in data:
+                    if d['kind'] == 'Adult':
+                        p = Adult(0,'',[12,12,12],"Male","Blue")
+                    if d['kind'] == 'Baby':
+                        p = Baby(0,'',[12,12,12],"Male","Blue")
+                    if d['kind'] == 'Senior':
+                        p = Senior(0,'',[12,12,12],"Male","Blue")
+                    if d['kind'] == 'Teenager':
+                        p = Teenager(0,'',[12,12,12],"Male","Blue")                
+                    p.load_from_json(d)
+                    Persons.append(p)                
             return Persons

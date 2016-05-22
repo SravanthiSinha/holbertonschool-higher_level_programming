@@ -5,17 +5,14 @@
       2, 
       1895
     ], 
-    "first_name": "sravanthi", 
+    "first_name": "srasha", 
     "last_name": "sinha", 
-    "is_married_to": 2, 
+    "is_married_to": 0, 
     "eyes_color": "Blue", 
     "genre": "Male", 
-    "id": 1, 
-    "kind": "Adult", 
-    "children": [
-      4, 
-      5
-    ]
+    "id": 8, 
+    "kind": "Baby", 
+    "children": []
   }, 
   {
     "date_of_birth": [
@@ -23,16 +20,31 @@
       2, 
       1895
     ], 
-    "first_name": "sri", 
-    "last_name": "sinha", 
+    "first_name": "srasha", 
+    "last_name": "pamu", 
+    "is_married_to": 0, 
+    "eyes_color": "Blue", 
+    "genre": "Male", 
+    "id": 9, 
+    "kind": "Baby", 
+    "children": []
+  }, 
+  {
+    "date_of_birth": [
+      20, 
+      2, 
+      1895
+    ], 
+    "first_name": "sri Harsh", 
+    "last_name": "Pamu", 
     "is_married_to": 1, 
     "eyes_color": "Blue", 
     "genre": "Male", 
     "id": 2, 
     "kind": "Adult", 
     "children": [
-      4, 
-      5
+      8, 
+      9
     ]
   }, 
   {
@@ -41,14 +53,17 @@
       2, 
       1895
     ], 
-    "first_name": "sri", 
+    "first_name": "sravanthi", 
     "last_name": "pamu", 
     "is_married_to": 0, 
     "eyes_color": "Blue", 
     "genre": "Male", 
-    "id": 4, 
-    "kind": "Baby", 
-    "children": []
+    "id": 3, 
+    "kind": "Adult", 
+    "children": [
+      8, 
+      9
+    ]
   }, 
   {
     "date_of_birth": [
@@ -56,14 +71,16 @@
       4, 
       2015
     ], 
-    "first_name": "Tony", 
-    "last_name": "Foto", 
-    "is_married_to": 0, 
+    "first_name": "Sree", 
+    "last_name": "Ramulu", 
+    "is_married_to": 5, 
     "eyes_color": "Green", 
     "genre": "Male", 
-    "id": 3, 
-    "kind": "Baby", 
-    "children": []
+    "id": 4, 
+    "kind": "Senior", 
+    "children": [
+      2
+    ]
   }, 
   {
     "date_of_birth": [
@@ -71,13 +88,15 @@
       6, 
       2016
     ], 
-    "first_name": "Monica", 
+    "first_name": "Mani", 
     "last_name": "", 
-    "is_married_to": 0, 
+    "is_married_to": 4, 
     "eyes_color": "Blue", 
     "genre": "Female", 
     "id": 5, 
-    "kind": "Baby", 
-    "children": []
+    "kind": "Senior", 
+    "children": [
+      2
+    ]
   }
 ]
