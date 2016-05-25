@@ -7,12 +7,13 @@
 
 
 /*Describes a Person*/
-class Person{
+class Person: CustomStringConvertible{
     
     var first_name : String
     var last_name : String
     var age : Int
     
+  
     init(first_name: String, last_name: String, age: Int){
         self.first_name = first_name
         self.last_name = last_name
@@ -24,6 +25,10 @@ class Person{
         return self.first_name+" "+self.last_name
     }
     
+    var description: String{
+        return fullName()
+    }
+    
 }
 
 
@@ -31,6 +36,7 @@ class School{
     
     var name:String
     var list_persons:[Person]
+
     
     init(name: String)
     {
@@ -84,6 +90,7 @@ class School{
         }
         return list_mentors.sort({$0.age > $1.age})
     }
+  
     
     func listMentorsBySubject(subject:Subject) -> [Person]{
         var list_mentors_subjects :[Person] = []
@@ -101,10 +108,66 @@ class School{
         return list_mentors_subjects.sort({$0.age > $1.age})
     }
     
+    func studentsAgeAverge() -> Int{
+        
+        let mentors = listStudents()
+        let avg = mentors.reduce(0) {
+            return $0 + $1.age/mentors.count
+        }
+        return avg
+    }
+   
+    
 
+    func mentorsAgeAverge() -> Int{
+        
+       let mentors = listMentors()
+       let avg = mentors.reduce(0) {
+            return $0 + $1.age/mentors.count
+        }
+        return avg
+    }
     
+    func average(subject: Subject) -> Float{
+        
+        var list_exercise_subjects :[Exercise] = []
+        
+        for person in listStudents(){
+            if let student = person as? Student{
+                for e in student.list_exercises{
+                    if e.subject == subject{
+                        list_exercise_subjects.append(e)
+                    }
+                }
+            }
+        }
+      
+        
+        let avg = list_exercise_subjects.reduce(0) {
+            return $0 + Float($1.note)/Float(list_exercise_subjects.count)
+        }
+        return avg
+    }
     
+    func averageAll() -> Float{
+        var list_exercise_subjects :[Exercise] = []
+        
+        for person in listStudents(){
+            if let student = person as? Student{
+                for e in student.list_exercises{
+                    list_exercise_subjects.append(e)
+                }
+            }
+        }
+        
+        let avg = list_exercise_subjects.reduce(0) {
+            return $0 + Float($1.note)/Float(list_exercise_subjects.count)
+        }
+        return avg
+    }
+
 }
+
 
 enum Subject: String{
     
@@ -112,6 +175,31 @@ enum Subject: String{
     
 }
 
+class Exercise{
+    
+    var subject:Subject
+    var note :Int
+    
+    init(subject: Subject){
+      self.subject = subject
+       self.note=0
+    }
+    
+    func setNote(note: Int){
+        
+        if note < 0{
+            self.note = 0
+        }
+        else if note > 10 {
+            self.note = 10
+        }
+        else
+        {
+        self.note = note
+        }
+    }
+    
+}
 
 protocol Classify {
     func isStudent() -> Bool
@@ -153,11 +241,52 @@ class Mentor: Person, Classify {
 
 class Student: Person, Classify {
     
+    var list_exercises :[Exercise]
+    
+    override init(first_name: String, last_name: String, age: Int){
+         self.list_exercises=[]
+        super.init(first_name:first_name, last_name:last_name, age:age)
+       
+    }
+    
     func isStudent() -> Bool{
         return true
     }
     
+    
+    func addNewNote(subject: Subject,_ note: Int){
+       let e = Exercise(subject: subject)
+        e.setNote(note)
+       list_exercises.append(e)
+    }
+    
+    func average(subject: Subject) -> Float{
+        
+        var list_exercise_subjects :[Exercise] = []
+       
+        for e in list_exercises{
+            if e.subject == subject {
+            list_exercise_subjects.append(e)
+            }
+        }
+        
+        let avg = list_exercise_subjects.reduce(0) {
+            return $0 + Float($1.note)/Float(list_exercise_subjects.count)
+        }
+        return avg
+    }
+    
+   func averageAll() -> Float{
+        let avg = list_exercises.reduce(0) {
+            return $0 + Float($1.note)/Float(list_exercises.count)
+        }
+        return avg
+    }
 }
+
+
+
+
 
 
 
