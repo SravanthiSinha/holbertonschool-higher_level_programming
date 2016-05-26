@@ -9,6 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TapperProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -35,9 +36,12 @@
                                     <constraint firstAttribute="height" constant="100" id="tbG-g0-gSg"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="playbtn.png"/>
+                                <connections>
+                                    <action selector="clickPlayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Ph-UD-UpW"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many taps you wanted ?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsy-rN-OJz">
-                                <rect key="frame" x="198" y="236" width="204" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many taps you wanted ?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsy-rN-OJz">
+                                <rect key="frame" x="195" y="377" width="210" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -49,6 +53,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zOv-NN-yVu" secondAttribute="bottom" constant="63" id="D4B-nc-vqo"/>
                             <constraint firstItem="p0q-o8-TyV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="DFP-hR-OvM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="p0q-o8-TyV" secondAttribute="bottom" id="Kbh-Yb-tum"/>
+                            <constraint firstItem="fsy-rN-OJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MfJ-py-YSE"/>
                             <constraint firstItem="fsy-rN-OJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SaA-W7-J6J"/>
                             <constraint firstItem="p0q-o8-TyV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="ZXL-sj-jCJ"/>
                             <constraint firstItem="zOv-NN-yVu" firstAttribute="top" secondItem="fsy-rN-OJz" secondAttribute="bottom" constant="30" id="faF-Fa-0Ot"/>
@@ -56,10 +61,14 @@
                             <constraint firstItem="LPu-W1-xsb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jZg-0F-Smt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button_play" destination="zOv-NN-yVu" id="MA5-3v-4og"/>
+                        <outlet property="image_tapper" destination="LPu-W1-xsb" id="nky-9t-z9d"/>
+                        <outlet property="textfield_number" destination="fsy-rN-OJz" id="fQQ-pw-P0Y"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="516"/>
+            <point key="canvasLocation" x="209" y="358"/>
         </scene>
     </scenes>
     <resources>
