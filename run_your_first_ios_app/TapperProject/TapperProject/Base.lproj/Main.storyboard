@@ -9,7 +9,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TapperProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -45,16 +44,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsP-Y0-Q6Q">
+                                <rect key="frame" x="238" y="290" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftL-UP-xQL">
+                                <rect key="frame" x="178" y="30" width="244" height="268"/>
+                                <state key="normal" backgroundImage="coin.png"/>
+                                <connections>
+                                    <action selector="clickCoinButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVU-EE-xHZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zOv-NN-yVu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1AM-4d-BBJ"/>
+                            <constraint firstItem="ftL-UP-xQL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="1E0-r3-Wdl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p0q-o8-TyV" secondAttribute="trailing" constant="-20" id="9IN-dD-heO"/>
+                            <constraint firstItem="ftL-UP-xQL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9OC-uw-Pep"/>
+                            <constraint firstItem="tsP-Y0-Q6Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AlR-08-GXU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zOv-NN-yVu" secondAttribute="bottom" constant="63" id="D4B-nc-vqo"/>
                             <constraint firstItem="p0q-o8-TyV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="DFP-hR-OvM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="p0q-o8-TyV" secondAttribute="bottom" id="Kbh-Yb-tum"/>
                             <constraint firstItem="fsy-rN-OJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MfJ-py-YSE"/>
                             <constraint firstItem="fsy-rN-OJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SaA-W7-J6J"/>
+                            <constraint firstItem="tsP-Y0-Q6Q" firstAttribute="top" secondItem="ftL-UP-xQL" secondAttribute="bottom" constant="10" id="XAt-qM-yeY"/>
                             <constraint firstItem="p0q-o8-TyV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="ZXL-sj-jCJ"/>
                             <constraint firstItem="zOv-NN-yVu" firstAttribute="top" secondItem="fsy-rN-OJz" secondAttribute="bottom" constant="30" id="faF-Fa-0Ot"/>
                             <constraint firstItem="LPu-W1-xsb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="iyX-RH-wLG"/>
@@ -62,17 +78,21 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button_coin" destination="ftL-UP-xQL" id="2fb-8A-Jwv"/>
                         <outlet property="button_play" destination="zOv-NN-yVu" id="MA5-3v-4og"/>
                         <outlet property="image_tapper" destination="LPu-W1-xsb" id="nky-9t-z9d"/>
+                        <outlet property="label_taps" destination="tsP-Y0-Q6Q" id="bVS-PA-h7I"/>
                         <outlet property="textfield_number" destination="fsy-rN-OJz" id="fQQ-pw-P0Y"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="209" y="358"/>
         </scene>
     </scenes>
     <resources>
         <image name="Tapper.png" width="497" height="107"/>
+        <image name="coin.png" width="244" height="268"/>
         <image name="playbtn.png" width="356" height="175"/>
         <image name="retrobg.png" width="800" height="800"/>
     </resources>
