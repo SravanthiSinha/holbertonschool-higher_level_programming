@@ -161,7 +161,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             
             let twitterShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             
-            let tweet = "My best time is "+timer.text! + " CheckOut the Tapper app created by @Sravanthi Sinha"
+            let tweet = "My best time is "+timer.text! + " CheckOut the Tapper app created by @SravanthiSinha"
             twitterShare.setInitialText(tweet)
             
             self.presentViewController(twitterShare, animated: true, completion: nil)
