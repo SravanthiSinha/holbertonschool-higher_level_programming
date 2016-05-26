@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E23119E1CF7A99400700920 /* Tapper.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E23119D1CF7A99400700920 /* Tapper.png */; };
+		9E2311A21CF7AAAE00700920 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E2311A11CF7AAAE00700920 /* twitter.png */; };
+		9E2311A41CF7B59C00700920 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2311A31CF7B59C00700920 /* Images.xcassets */; };
 		9EA30DE41CF6AC0C00E00684 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA30DE01CF6AC0C00E00684 /* coin.png */; };
 		9EA30DE51CF6AC0C00E00684 /* playbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA30DE11CF6AC0C00E00684 /* playbtn.png */; };
 		9EA30DE61CF6AC0C00E00684 /* retrobg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA30DE21CF6AC0C00E00684 /* retrobg.png */; };
-		9EA30DE71CF6AC0C00E00684 /* Tapper.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA30DE31CF6AC0C00E00684 /* Tapper.png */; };
 		B4AF257A1CF4E5B600D15DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF25791CF4E5B600D15DDF /* AppDelegate.swift */; };
 		B4AF257C1CF4E5B600D15DDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF257B1CF4E5B600D15DDF /* ViewController.swift */; };
 		B4AF257F1CF4E5B600D15DDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AF257D1CF4E5B600D15DDF /* Main.storyboard */; };
@@ -19,10 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E23119D1CF7A99400700920 /* Tapper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tapper.png; path = ../../../../Downloads/TapperProject/images/Tapper.png; sourceTree = "<group>"; };
+		9E2311A11CF7AAAE00700920 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter.png; path = images/twitter.png; sourceTree = SOURCE_ROOT; };
+		9E2311A31CF7B59C00700920 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9EA30DE01CF6AC0C00E00684 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = images/coin.png; sourceTree = SOURCE_ROOT; };
 		9EA30DE11CF6AC0C00E00684 /* playbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbtn.png; path = images/playbtn.png; sourceTree = SOURCE_ROOT; };
 		9EA30DE21CF6AC0C00E00684 /* retrobg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retrobg.png; path = images/retrobg.png; sourceTree = SOURCE_ROOT; };
-		9EA30DE31CF6AC0C00E00684 /* Tapper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tapper.png; path = images/Tapper.png; sourceTree = SOURCE_ROOT; };
 		B4AF25761CF4E5B600D15DDF /* TapperProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapperProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AF25791CF4E5B600D15DDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AF257B1CF4E5B600D15DDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,12 +70,14 @@
 				B4AF257B1CF4E5B600D15DDF /* ViewController.swift */,
 				B4AF257D1CF4E5B600D15DDF /* Main.storyboard */,
 				B4AF25801CF4E5B600D15DDF /* Assets.xcassets */,
+				9E2311A11CF7AAAE00700920 /* twitter.png */,
+				9E23119D1CF7A99400700920 /* Tapper.png */,
 				9EA30DE01CF6AC0C00E00684 /* coin.png */,
 				9EA30DE11CF6AC0C00E00684 /* playbtn.png */,
 				9EA30DE21CF6AC0C00E00684 /* retrobg.png */,
-				9EA30DE31CF6AC0C00E00684 /* Tapper.png */,
 				B4AF25821CF4E5B600D15DDF /* LaunchScreen.storyboard */,
 				B4AF25851CF4E5B600D15DDF /* Info.plist */,
+				9E2311A31CF7B59C00700920 /* Images.xcassets */,
 			);
 			path = TapperProject;
 			sourceTree = "<group>";
@@ -108,6 +114,7 @@
 				TargetAttributes = {
 					B4AF25751CF4E5B600D15DDF = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 98XF47S5GM;
 					};
 				};
 			};
@@ -134,12 +141,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E2311A41CF7B59C00700920 /* Images.xcassets in Resources */,
 				9EA30DE51CF6AC0C00E00684 /* playbtn.png in Resources */,
+				9E2311A21CF7AAAE00700920 /* twitter.png in Resources */,
 				9EA30DE61CF6AC0C00E00684 /* retrobg.png in Resources */,
 				9EA30DE41CF6AC0C00E00684 /* coin.png in Resources */,
 				B4AF25841CF4E5B600D15DDF /* LaunchScreen.storyboard in Resources */,
 				B4AF25811CF4E5B600D15DDF /* Assets.xcassets in Resources */,
-				9EA30DE71CF6AC0C00E00684 /* Tapper.png in Resources */,
+				9E23119E1CF7A99400700920 /* Tapper.png in Resources */,
 				B4AF257F1CF4E5B600D15DDF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,22 +275,26 @@
 		B4AF25891CF4E5B600D15DDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TapperProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.holbertonschool.TapperProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		B4AF258A1CF4E5B600D15DDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TapperProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.holbertonschool.TapperProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

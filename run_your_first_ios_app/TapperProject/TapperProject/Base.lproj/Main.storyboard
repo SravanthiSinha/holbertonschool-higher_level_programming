@@ -57,6 +57,27 @@
                                     <action selector="clickCoinButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVU-EE-xHZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRh-Qj-IgW">
+                                <rect key="frame" x="280" y="327" width="40" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="1L0-U5-jJv"/>
+                                    <constraint firstAttribute="width" constant="40" id="asD-cy-0Zq"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="twitter.png"/>
+                                <connections>
+                                    <action selector="tweetPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ke-oT-FXR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BA-qw-eD5">
+                                <rect key="frame" x="263" y="298" width="74" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3kj-Sr-Ftj"/>
+                                    <constraint firstAttribute="width" constant="74" id="JQm-4l-CQt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -68,13 +89,17 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zOv-NN-yVu" secondAttribute="bottom" constant="63" id="D4B-nc-vqo"/>
                             <constraint firstItem="p0q-o8-TyV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="DFP-hR-OvM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="p0q-o8-TyV" secondAttribute="bottom" id="Kbh-Yb-tum"/>
+                            <constraint firstItem="9BA-qw-eD5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M5B-do-zj6"/>
+                            <constraint firstItem="pRh-Qj-IgW" firstAttribute="top" secondItem="9BA-qw-eD5" secondAttribute="bottom" constant="8" id="M6J-ab-0Pw"/>
                             <constraint firstItem="fsy-rN-OJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MfJ-py-YSE"/>
                             <constraint firstItem="fsy-rN-OJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SaA-W7-J6J"/>
                             <constraint firstItem="tsP-Y0-Q6Q" firstAttribute="top" secondItem="ftL-UP-xQL" secondAttribute="bottom" constant="10" id="XAt-qM-yeY"/>
                             <constraint firstItem="p0q-o8-TyV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="ZXL-sj-jCJ"/>
+                            <constraint firstItem="fsy-rN-OJz" firstAttribute="top" secondItem="pRh-Qj-IgW" secondAttribute="bottom" constant="15" id="dzZ-8a-QaK"/>
                             <constraint firstItem="zOv-NN-yVu" firstAttribute="top" secondItem="fsy-rN-OJz" secondAttribute="bottom" constant="30" id="faF-Fa-0Ot"/>
                             <constraint firstItem="LPu-W1-xsb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="iyX-RH-wLG"/>
                             <constraint firstItem="LPu-W1-xsb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jZg-0F-Smt"/>
+                            <constraint firstItem="pRh-Qj-IgW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mau-LW-5kU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -83,6 +108,8 @@
                         <outlet property="image_tapper" destination="LPu-W1-xsb" id="nky-9t-z9d"/>
                         <outlet property="label_taps" destination="tsP-Y0-Q6Q" id="bVS-PA-h7I"/>
                         <outlet property="textfield_number" destination="fsy-rN-OJz" id="fQQ-pw-P0Y"/>
+                        <outlet property="timer" destination="9BA-qw-eD5" id="5Bg-2M-cLJ"/>
+                        <outlet property="tweetBurron" destination="pRh-Qj-IgW" id="4f2-VJ-loC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -95,5 +122,6 @@
         <image name="coin.png" width="244" height="268"/>
         <image name="playbtn.png" width="356" height="175"/>
         <image name="retrobg.png" width="800" height="800"/>
+        <image name="twitter.png" width="640" height="637"/>
     </resources>
 </document>
