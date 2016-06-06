@@ -94,3 +94,7 @@ class Car:
         car.appendChild(brand)
 
         return car
+
+    '''Converts class to comma-separated string'''
+    def to_comma(self):
+        return self.__name + "," + self.__brand + "," + str(self.__nb_doors) + "\n"

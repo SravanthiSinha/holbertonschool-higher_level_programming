@@ -9,7 +9,7 @@ doors = 0
 doc = Document()
 
 
-with open('cars.json') as data_file:    
+with open('5-main.json') as data_file:    
     data = json.load(data_file)
 
 xml_cars = doc.createElement('cars')
