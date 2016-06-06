@@ -1,7 +1,25 @@
+import json
+
 '''Defines class Car attributes and methods'''
 class Car:
     
     def __init__(self, *args, **kwargs):
+        
+        '''Checks for args in dicts or comma separated formats'''
+        if args:
+            for arg in args:
+                if isinstance(arg, dict):
+                    if 'name' in arg:
+                        name = str(arg.pop('name'))
+                    if 'brand' in arg:
+                        brand = str(arg.pop('brand'))
+                    if 'nb_doors' in arg:
+                        nb_doors = arg.pop('nb_doors')
+                if isinstance(arg, str) and len(arg.split(',')) == 3:
+                    values = arg.split(',')
+                    name = values[0]
+                    brand = values[1]
+                    nb_doors = int(values[2])
 
         '''Checks for named values in keyword arguments'''
         if 'name' in kwargs:
@@ -50,3 +68,28 @@ class Car:
     def __str__(self):
         return self.__name + " " + self.__brand + " (" + str(self.__nb_doors) + ")"
 
+    '''Sets the number of doors private attribute'''
+    def set_nb_doors(self, number):
+        self.__nb_doors = number
+
+    
+    '''Converts class to json string'''
+    def to_json_string(self):
+        return json.dumps(self.to_hash())
+
+    '''Converts class to XML doc'''
+    def to_xml_node(self, doc):
+        car = doc.createElement('car')
+        car.setAttribute('nb_doors', str(self.__nb_doors))
+
+        name = doc.createElement('name')
+        name_content = doc.createCDATASection(self.__name)
+        name.appendChild(name_content)
+        car.appendChild(name)
+
+        brand = doc.createElement('brand')
+        brand_content = doc.createTextNode(self.__brand)
+        brand.appendChild(brand_content)
+        car.appendChild(brand)
+
+        return car
