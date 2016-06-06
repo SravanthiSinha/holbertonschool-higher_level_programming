@@ -79,6 +79,7 @@ class Car:
 
     '''Converts class to XML doc'''
     def to_xml_node(self, doc):
+
         car = doc.createElement('car')
         car.setAttribute('nb_doors', str(self.__nb_doors))
 
