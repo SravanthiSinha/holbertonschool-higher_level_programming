@@ -1,8 +1,32 @@
-select distinct last_name from Person P inner join TVSHowPerson TSP on P.id=TSP.person_id inner join TVSHow TS on TS.id= TSP.tvshow_id where TS.name = 'Game of Thrones' order by P.last_name ;
+/*all distinct last_name of the TVShow = Game of Thrones ordered by last_name ascending*/ 
+SELECT DISTINCT last_name 
+FROM   person P 
+       INNER JOIN tvshowperson TSP 
+               ON P.id = TSP.person_id 
+       INNER JOIN tvshow TS 
+               ON TS.id = TSP.tvshow_id 
+WHERE  TS.NAME = 'Game of Thrones' 
+ORDER  BY P.last_name ASC; 
 
-SELECT count(id) from Person where age >30;
+/*the number of Person where the age is greater than 30*/ 
+SELECT Count(id) 
+FROM   person 
+WHERE  age > 30; 
 
-select P.id,first_name,last_name,age,color,name from Person P inner join EyesColor E on P.id=E.person_id inner join TVSHowPerson TSP on P.id=TSP.person_id inner join TVSHow TS on TS.id= TSP.tvshow_id;
+SELECT P.id, 
+       first_name, 
+       last_name, 
+       age, 
+       color, 
+       NAME 
+FROM   person P 
+       INNER JOIN eyescolor E 
+               ON P.id = E.person_id 
+       INNER JOIN tvshowperson TSP 
+               ON P.id = TSP.person_id 
+       INNER JOIN tvshow TS 
+               ON TS.id = TSP.tvshow_id; 
 
-SELECT SUM(age) from Person;
-
+/*sum of age of all Person*/ 
+SELECT Sum(age) 
+FROM   person; 
