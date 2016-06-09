@@ -28,4 +28,20 @@ class Entity{
         self.type = type
     }
     
+    func getName()->String{
+        return self.name;
+    }
+    
+    func getTown()->String{
+        return self.town;
+    }
+    
+    func getImageName()->String{
+        return self.imageName;
+    }
+    
+    func getType()->EntityType{
+        return self.type;
+    }
+    
 }
