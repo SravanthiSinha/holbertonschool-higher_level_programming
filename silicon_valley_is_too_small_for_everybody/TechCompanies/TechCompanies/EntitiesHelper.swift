@@ -26,9 +26,9 @@ class EntitiesHelper{
         if self.listOfTechCompany.isEmpty{
             self.listOfTechCompany.append(Entity(name: "Linkedin", town: "San Francisco", imageName: "linkedin", type: .TechCompany))
             self.listOfTechCompany.append(Entity(name: "Docker", town: "San Francisco", imageName: "docker", type: .TechCompany))
-            self.listOfSchool.append(Entity(name: "Google", town: "Mountain View", imageName: "google", type: .TechCompany))
+            self.listOfTechCompany.append(Entity(name: "Google", town: "Mountain View", imageName: "google", type: .TechCompany))
             self.listOfTechCompany.append(Entity(name: "Yahoo", town: "Sunnyvale", imageName: "yahoo", type: .TechCompany))
-           self.listOfSchool.append(Entity(name: "Apple", town: "Cupertino", imageName: "apple", type: .TechCompany))
+           self.listOfTechCompany.append(Entity(name: "Apple", town: "Cupertino", imageName: "apple", type: .TechCompany))
             self.listOfTechCompany.append(Entity(name: "Twitter", town: "San Francisco", imageName: "twitter", type: .TechCompany))
         }
         return self.listOfTechCompany

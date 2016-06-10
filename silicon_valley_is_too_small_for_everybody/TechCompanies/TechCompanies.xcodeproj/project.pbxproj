@@ -22,6 +22,7 @@
 		9E8298951CF91F2B00A8478F /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8298941CF91F2B00A8478F /* Entity.swift */; };
 		9E8298971CF920B000A8478F /* EntitiesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8298961CF920B000A8478F /* EntitiesHelper.swift */; };
 		9E82989B1CF921FA00A8478F /* TechCompaniesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82989A1CF921FA00A8478F /* TechCompaniesListViewController.swift */; };
+		9E8815591D0A0F1F0091164E /* TechCompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8815581D0A0F1F0091164E /* TechCompanyDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9E8298941CF91F2B00A8478F /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		9E8298961CF920B000A8478F /* EntitiesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesHelper.swift; sourceTree = "<group>"; };
 		9E82989A1CF921FA00A8478F /* TechCompaniesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechCompaniesListViewController.swift; sourceTree = "<group>"; };
+		9E8815581D0A0F1F0091164E /* TechCompanyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechCompanyDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				9E82989A1CF921FA00A8478F /* TechCompaniesListViewController.swift */,
+				9E8815581D0A0F1F0091164E /* TechCompanyDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				9E8298741CF91EC400A8478F /* AppDelegate.swift in Sources */,
 				9E82989B1CF921FA00A8478F /* TechCompaniesListViewController.swift in Sources */,
 				9E8298951CF91F2B00A8478F /* Entity.swift in Sources */,
+				9E8815591D0A0F1F0091164E /* TechCompanyDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +346,7 @@
 				9E8298841CF91EC500A8478F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

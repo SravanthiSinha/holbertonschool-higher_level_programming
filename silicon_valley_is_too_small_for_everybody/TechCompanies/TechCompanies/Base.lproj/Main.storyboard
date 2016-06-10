@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -37,6 +38,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XKN-ki-pfz" kind="show" identifier="techDetailSegue" id="TpD-6e-8tB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -48,7 +52,55 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCc-SA-XWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="244"/>
+            <point key="canvasLocation" x="-181" y="244"/>
+        </scene>
+        <!--Tech Company Detail View Controller-->
+        <scene sceneID="sYb-gM-ruA">
+            <objects>
+                <viewController id="XKN-ki-pfz" customClass="TechCompanyDetailViewController" customModule="TechCompanies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9U0-as-tuv"/>
+                        <viewControllerLayoutGuide type="bottom" id="gab-ij-SBZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0i3-uI-tuC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVO-rC-8dN">
+                                <rect key="frame" x="0.0" y="77" width="600" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4W3-lw-fW0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iS2-Vy-jJE">
+                                <rect key="frame" x="200" y="76" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4Ad-jM-SUY"/>
+                                    <constraint firstAttribute="height" constant="200" id="vYk-Be-Ur5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uVO-rC-8dN" firstAttribute="centerX" secondItem="0i3-uI-tuC" secondAttribute="centerX" id="1TT-WJ-xVW"/>
+                            <constraint firstItem="uVO-rC-8dN" firstAttribute="top" secondItem="9U0-as-tuv" secondAttribute="bottom" constant="20" id="Ajg-AG-swO"/>
+                            <constraint firstItem="uVO-rC-8dN" firstAttribute="leading" secondItem="0i3-uI-tuC" secondAttribute="leadingMargin" constant="-20" id="Zwv-s3-Szf"/>
+                            <constraint firstItem="iS2-Vy-jJE" firstAttribute="top" secondItem="uVO-rC-8dN" secondAttribute="bottom" constant="20" id="gwN-Vo-CDf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uVO-rC-8dN" secondAttribute="trailing" constant="-20" id="mkT-xx-wMI"/>
+                            <constraint firstItem="iS2-Vy-jJE" firstAttribute="centerX" secondItem="0i3-uI-tuC" secondAttribute="centerX" id="zdK-Vr-rnp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="image_entity" destination="iS2-Vy-jJE" id="a9D-Ee-jf9"/>
+                        <outlet property="label_entity" destination="uVO-rC-8dN" id="rZa-cp-rhu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sG-x4-qmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="244"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hcK-8r-aNc">
