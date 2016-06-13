@@ -4,7 +4,7 @@ from peewee import *
 from peewee import fn
 from models import *
 
-commands = ['create','print','insert','delete','print_batch_by_school','print_student_by_batch','print_student_by_school','print_family','age_average','change_batch','print_all']
+commands = ['create','print','insert','delete','print_batch_by_school','print_student_by_batch','print_student_by_school','print_family','age_average','change_batch','print_all','note_average_by_student','note_average_by_batch','note_average_by_school', 'top_batch','top_school']
 args = sys.argv
 modelnames=['school','batch','user','student','exercise']
 
@@ -125,11 +125,12 @@ def print_family():
 def age_average():
     if len(args) == 3:
         batch = Batch.select().where(Batch.id == args[2]).get()
-        age = Student.select(fn.Avg(Student.age)).where(Student.batch_id == batch.id).group_by(Student).scalar()
+        age = Student.select(fn.Avg(Student.age)).where(Student.batch_id == batch.id).scalar()
         print str(age)
     else:
-        age = Student.select(fn.Avg(Student.age)).group_by(Student).scalar()
-        print str(age)
+        age = Student.select(fn.Avg(Student.age)).scalar()
+        print str(int(age))
+
 
 def change_batch():
     try:
@@ -160,6 +161,94 @@ def print_all():
                 for exercise in exercises:
                     print "\t\t\t", exercise
 
+
+def note_average_by_student():
+    if len(args) != 3:
+        return
+
+    try:
+        student = Student.get(Student.id == args[2])
+    except Student.DoesNotExist:
+        print "Student not found"
+        return
+
+    subjects = Exercise.select().where(Exercise.student == args[2]).group_by(Exercise.subject)
+    for subject in subjects:
+        avg = Exercise.select(fn.Avg(Exercise.note)).where(Exercise.student == args[2], Exercise.subject == subject.subject).scalar()
+        print "%s: %g" % (subject.subject,avg )
+
+def note_average_by_batch():
+    if len(args) != 3:
+        return
+
+    try:
+        tmp = Batch.get(Batch.id == args[2])
+    except Batch.DoesNotExist:
+        print "Batch not found"
+        return
+
+    subjects = Exercise.select(Exercise.subject).join(Student).where(Student.batch == args[2]).group_by(Exercise.subject)
+
+    for subject in subjects:
+        avg = Exercise.select(fn.Avg(Exercise.note)).join(Student, on=Exercise.student).where(Student.batch == args[2], Exercise.subject == subject.subject).scalar()
+        print "%s: %g" % (subject.subject, avg)
+
+
+def note_average_by_school():
+    if len(args) != 3:
+        return
+
+    try:
+        tmp = School.get(School.id == args[2])
+    except School.DoesNotExist:
+        print "School not found"
+        return
+
+    subjects = (Exercise.select(Exercise.subject).join(Student, on=Exercise.student).join(Batch, on=Student.batch).where(Batch.school == args[2])
+        .group_by(Exercise.subject))
+
+    for subject in subjects:
+        avg = subject.select(fn.Avg(Exercise.note)).where(Exercise.subject == subject.subject).scalar()
+        print "%s: %g" % (subject.subject, avg)
+ 
+def top_batch():
+    if len(args) == 3:
+        try:
+            batch = Batch.get(Batch.id == args[2])
+            students =Student.select(Student).join(Exercise,on=Exercise.student).where(Student.batch == batch).group_by(Student.batch).having(Exercise.note == fn.MAX(Exercise.note))
+            for student in students:
+                print "%s" % (student)
+        except Batch.DoesNotExist:
+            print "Batch not found"
+    elif len(args) == 4:
+        try:
+            batch = Batch.get(Batch.id == args[2])
+            students =Student.select(Student).join(Exercise,on=Exercise.student).where(Student.batch == batch, Exercise.subject==args[3]).group_by(Student.batch).having(Exercise.note == fn.MAX(Exercise.note))
+            for student in students:
+                print "%s" % (student)
+        except Batch.DoesNotExist:
+            print "Batch not found"
+            return
+    
+def top_school():
+    if len(args) == 3:
+        try:
+            school = School.get(School.id == args[2])
+            students =Student.select(Student).join(Batch,on=Student.batch).join(Exercise,on=Exercise.student).where(Batch.school == school).group_by(Batch.school).having(Exercise.note == fn.MAX(Exercise.note))
+            for student in students:
+                print "%s" % (student)
+        except School.DoesNotExist:
+            print "School not found"
+    elif len(args) == 4:
+        try:
+            school = School.get(School.id == args[2])
+            students =Student.select(Student).join(Batch,on=Student.batch).join(Exercise,on=Exercise.student).where(Batch.school == school, Exercise.subject==args[3]).group_by(Batch.school).having(Exercise.note == fn.MAX(Exercise.note))
+            for student in students:
+                print "%s" % (student)
+        except School.DoesNotExist:
+            print "School not found"
+            return
+    
 if len(args)<2:
     print 'Please enter an action'
 elif args[1] not in commands:
@@ -187,4 +276,14 @@ else:
         change_batch()
     elif args[1] == 'print_all':
         print_all()
+    elif args[1] == 'note_average_by_student':
+        note_average_by_student()
+    elif args[1] == 'note_average_by_batch':
+        note_average_by_batch()
+    elif args[1] == 'note_average_by_school':
+        note_average_by_school()
+    elif args[1] == 'top_batch':
+        top_batch()
+    elif args[1] == 'top_school':
+        top_school()
  
