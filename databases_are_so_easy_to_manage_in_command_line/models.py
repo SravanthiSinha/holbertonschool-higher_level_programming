@@ -44,6 +44,21 @@ class Student(User):
         return "Student: " + name + " (" + str(self.id) + ") part of the batch: " + str(self.batch)
 
 
+class Exercise(BaseModel):
+    SUBJECTS = [
+        ('math', "Math"),
+        ('english', "English"),
+        ('history', "History"),
+        ('c_prog', "C prog"),
+        ('swift_prog', "Swift prog")
+    ]
+
+    student = peewee.ForeignKeyField(Student,related_name="exercises",on_delete="CASCADE")
+    subject = peewee.CharField(128, choices=SUBJECTS)
+    note = peewee.IntegerField(default=0)
+
+    def __str__(self):
+        return "Exercise: %s has %s in %s (%s)" % (self.student, self.note, self.subject, self.id)
     
 
 
