@@ -1,10 +1,13 @@
 import sys
 import peewee
+import json
+from playhouse.shortcuts import *
+from playhouse.shortcuts import model_to_dict, dict_to_model
 from peewee import *
 from peewee import fn
 from models import *
 
-commands = ['create','print','insert','delete','print_batch_by_school','print_student_by_batch','print_student_by_school','print_family','age_average','change_batch','print_all','note_average_by_student','note_average_by_batch','note_average_by_school', 'top_batch','top_school']
+commands = ['create','print','insert','delete','print_batch_by_school','print_student_by_batch','print_student_by_school','print_family','age_average','change_batch','print_all','note_average_by_student','note_average_by_batch','note_average_by_school', 'top_batch','top_school','export_json','import_json']
 args = sys.argv
 modelnames=['school','batch','user','student','exercise']
 
@@ -248,6 +251,38 @@ def top_school():
         except School.DoesNotExist:
             print "School not found"
             return
+
+def export_json():
+    schools = School.select()
+    sys.stdout.write('[')
+    jsonschools =[]
+    for school in schools:
+        jsonschools.append(json.dumps(model_to_dict(school,recurse=True, backrefs=True,exclude=[Exercise.id,School.id,Student.id,Batch.id])))
+    sys.stdout.write(",".join(jsonschools))
+    print ']'
+
+def is_json(myjson):
+    try:
+        json_object = json.loads(myjson)
+    except ValueError, e:
+        return False
+    return True
+
+def import_json():
+    if is_json(args[2]):
+        for x in json.loads(args[2]):
+            school = dict_to_model(School,x,ignore_unknown=False)
+            school.save()
+            for batch in school.batches:
+                batch.save()
+                for student in batch.students:
+                    student.save()
+                    for exercise in student.exercises:
+                        exercise.save()
+
+    else:
+        print 'Please set a JSON string'
+
     
 if len(args)<2:
     print 'Please enter an action'
@@ -285,5 +320,8 @@ else:
     elif args[1] == 'top_batch':
         top_batch()
     elif args[1] == 'top_school':
-        top_school()
- 
+        top_school() 
+    elif args[1] == 'export_json':
+        export_json()
+    elif args[1] == 'import_json':
+        import_json()
