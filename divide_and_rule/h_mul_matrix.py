@@ -27,23 +27,17 @@ class MultiplicationMatrix():
         n = len(matrix_1)
         for x in range(n):
             MultiplicationMatrix.product.append([0]*n)
-        chunk = int(n*n/nb_threads)
-        coords = []
-        m = 1
+        m = 0
         for i in range(n):
             for j in range(n):
-                if (m <= (nb_threads-1)*chunk):
-                    m +=1
-                    coords.append([i,j])
-                    thread = MultiplicationMatrixThread(i,j,matrix_1[i],zip(*matrix_2)[j])
-                    thread.start()
-                else:
-                    break
-        for i in range(n):
-            for j in range(n):
-                if [i,j] not in coords:
-                    thread = MultiplicationMatrixThread(i,j,matrix_1[i],zip(*matrix_2)[j])
-                    thread.start()
+                m +=1
+                thread = MultiplicationMatrixThread(i,j,matrix_1[i],zip(*matrix_2)[j])
+                thread.start()
+                if m == nb_threads:
+                    while self.isComputing():
+                        pass
+                    m = 0
+
 
     def isComputing(self):
        if active_count() == 1:
