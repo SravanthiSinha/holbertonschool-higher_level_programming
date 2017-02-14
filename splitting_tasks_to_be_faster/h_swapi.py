@@ -21,10 +21,10 @@ class mThread(Thread):
         self.url = url
         self.modelname = modelname
         Thread.__init__(self)
-        self._stop = threading.Event()
+        self.__stop = threading.Event()
 
     def stop(self):
-        self._stop.set()
+        self.__stop.set()
                        
     def __get_json(self,url):
         req = requests.get(self.url)
