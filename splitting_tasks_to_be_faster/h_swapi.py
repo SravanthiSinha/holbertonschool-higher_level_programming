@@ -42,8 +42,20 @@ class mThread(Thread):
             planets.update(data['planets'])
         elif self.modelname == 'people':
             model = PeopleModel.create(id=self.pid,name=data['name'])
+            films = data['films']
+            for film in films:
+                fid = film.split("/")[-2]
+                model.films.add(fid)
         elif self.modelname == 'planet':
             model = PlanetModel.create(name=data['name'],climate=data['climate'])
+            films = data['films']
+            people =data['residents']
+            for film in films:
+                fid = film.split("/")[-2]
+                model.films.add(fid)
+            for p in people:
+                pid = p.split("/")[-2]
+                model.residents.add(pid)
         model.save()
         
 class SWAPI:
