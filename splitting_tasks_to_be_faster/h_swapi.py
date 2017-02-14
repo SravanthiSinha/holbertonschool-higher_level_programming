@@ -1,11 +1,11 @@
 import peewee
 import json
-
+import threading 
 import requests
 from h_swapi_models import FilmModel, PeopleModel,PlanetModel,BaseModel,FilmPeople,FilmPlanet,PeoplePlanet
 
 from playhouse.shortcuts import *
-from threading import Thread,active_count,Lock
+from threading import Thread
 
 characters = set()
 planets = set()
@@ -21,7 +21,11 @@ class mThread(Thread):
         self.url = url
         self.modelname = modelname
         Thread.__init__(self)
-        
+        self._stop = threading.Event()
+
+    def stop(self):
+        self._stop.set()
+                       
     def __get_json(self,url):
         req = requests.get(self.url)
         return req.json()
@@ -62,9 +66,16 @@ class SWAPI:
     
     def __init__(self, database_name):
         self.__database_name = database_name
-        
-    def __create_tables(self):
-        BaseModel.database.create_tables([FilmModel, PeopleModel,PlanetModel,FilmPlanet,FilmPeople,PeoplePlanet])
+
+    def stop(self):
+        global fthreads,cthreads,pthreads
+        for t in fthreads:
+            t.stop()
+        for t in cthreads:
+            t.stop()
+        for t in pthreads:
+            t.stop()
+        BaseModel.database.close()
         
     def is_done(self):
         global fthreads,cthreads,pthreads
@@ -79,6 +90,10 @@ class SWAPI:
                 return False
         return True
 
+    def __create_tables(self):
+        BaseModel.database.create_tables([FilmModel, PeopleModel,PlanetModel,FilmPlanet,FilmPeople,PeoplePlanet])
+        
+    
     def __fetch_films(self):
         global fthreads
         for x in range(1,8):
