@@ -67,3 +67,8 @@ def mutiply_list_map(my_list=[], number=0)
 /*A function that returns the weighted average of all integers tuple (<score>, <weight>)*/
 def weight_average(my_list=[])
 ```
+
+```c
+/* A function that computes the square value of all integers of a matrix using map*/
+def square_matrix_map(matrix=[])
+```
