@@ -72,3 +72,8 @@ def weight_average(my_list=[])
 /* A function that computes the square value of all integers of a matrix using map*/
 def square_matrix_map(matrix=[])
 ```
+
+```c
+/*A a function that deletes keys with a specific value in a dictionary.*/
+def complex_delete(my_dict, value)
+```
