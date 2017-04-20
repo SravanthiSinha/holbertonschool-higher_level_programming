@@ -57,3 +57,8 @@ def multiply_by_2(my_dict)
 /*A function that returns a key with the biggest integer value.*/
 def best_score(my_dict)
 ```
+
+```c
+/*A function that returns a list with all values multiplied by a number without using any loops.*/
+def mutiply_list_map(my_list=[], number=0)
+*/
