@@ -10,40 +10,42 @@ Correct Usage:
     >>> print('{}'.format(square.area()))
     0
 
-    >>> s = Square(5)
-    >>> print("{:d}".format(s.size))
+    >>> my_square = Square(5)
+    >>> print("{:d}".format(my_square.size))
     5
-    >>> print('{}'.format(s.area()))
+    >>> print('{}'.format(my_square.area()))
     25
 
-    >>> s.size = 9
-    >>> print("{:d}".format(s.size))
-    9
-    >>> print('{:d}'.format(s.area()))
-    81
-
-    >>> print(s.__dict__)
-    {'_Square__size': 9}
+    >>> my_square.size = 50
+    >>> print("{:d}".format(my_square.size))
+    50
+    >>> print('{:d}'.format(my_square.area()))
+    2500
 
 On Errors:
 
-    >>> s.size = "5 feet"
+    >>> my_square.size = "Five Inches"
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-    >>> s.size = -3
+    >>> my_square.size = -3
     Traceback (most recent call last):
     ValueError: size must be >= 0
 
-    >>> print(s.__size)
+    >>> print(my_square.__size)
     Traceback (most recent call last):
     AttributeError: 'Square' object has no attribute '__size'
 
+    >>> print(my_square.__dict__)
+    {'_Square__size': 50}
 
-    >>> p = Square("5 inches")
+    >>> print(type(my_square))
+    <class '4-square.Square'>
+
+    >>> new_square = Square("25 Feet")
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-    >>> p = Square(-1337)
+    >>> new_square = Square(-1337)
     Traceback (most recent call last):
     ValueError: size must be >= 0
