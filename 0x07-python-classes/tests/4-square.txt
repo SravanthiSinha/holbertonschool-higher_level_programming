@@ -1,92 +1,150 @@
-The ``4-square`` module
-====================
+This module creates:
+one class ``Square`` which contains
+    4 methods
+      __init__(self, size)
+    area(self)
+    size(self)
+    size(self, value)
+    1 hidden attribute
+      __size
 
-Using ``Square`` class
-----------------------
+Using ``Square``
+-------------------
+
 First import ``Square`` from the ``4-square`` module:
 
-    >>> Square = __import__("4-square").Square
+      >>> Square = __import__('4-square').Square
 
-How to use:
+Now use it:
 
-    >>> s = Square(10)
-    >>> s.__class__
+    >>> x = Square(3)
+    >>> print(type(x))
     <class '4-square.Square'>
 
-    >>> s.size
-    10
 
-    >>> s.size = 89
-    >>> s.size
-    89
+Testing __init__(self, size)
+----------------------------
+size is an optional argument. If given it must be an int >= 0
 
-    >>> s.size = 's'
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
+WRONG
 
-    >>> s.size = -3
-    Traceback (most recent call last):
-        ...
-    ValueError: size must be >= 0
+>>> def test_init_bad(tests):
+... 	for test in tests:
+...    	    try:
+...			x = Square(test)
+...         except Exception as e:
+...        	   print("{}: {}".format(type(e).__name__, e))
+...
 
-    >>> s.area()
-    7921
+	>>> test_init_bad(["hello", [1, 2], {}, ("a", 1), 23.456, set(), test_init_bad])
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
 
-    >>> s.area(1)
-    Traceback (most recent call last):
-        ...
-    TypeError: area() takes 1 positional argument but 2 were given
 
-    >>> s.__dict__
-    {'_Square__size': 89}
+	>>> x = Square(-1)
+	Traceback (most recent call last):
+	ValueError: size must be >= 0
 
-    >>> s.size
-    89
 
-    >>> def test_init_fail(tests):
-    ...     for test in tests:
-    ...    	try:
-    ...		    x = Square(test)
-    ...     	except Exception as e:
-    ...        	    print("{}: {}".format(type(e).__name__, e))
-    ...
+GOOD
+	>>> x = Square(3)
+	>>> print(type(x))
+	<class '4-square.Square'>
 
-    >>> test_init_fail(["hello world", 22.3, [402, 98], {8,9}, ("a", 1), set(), [], test_init_fail])
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
+	>>> print(x.__dict__)
+	{'_Square__size': 3}
 
-    >>> s = Square()
-    >>> print(type(s))
-    <class '4-square.Square'>
 
-    >>> print(s.size)
-    0
+	>>> x = Square()
+	>>> print(type(x))
+	<class '4-square.Square'>
 
-    >>> s = Square(3)
-    >>> print(s._Square__size)
-    3
+	>>> print(x.__dict__)
+	{'_Square__size': 0}
 
-    >>> x = Square()
-    >>> def test_init_fail2(tests):
-    ...	    for test in tests:
-    ...	    	try:
-    ...		    x.size = test
-    ...	    	except Exception as e:
-    ...	    	    print("{}: {}".format(type(e).__name__, e))
+	>>> x = Square(0)
+	>>> print(type(x))
+	<class '4-square.Square'>
 
-    >>> test_init_fail2(["hello world", 22.3, [402, 98], {8,9}, ("a", 1), set(), [], test_init_fail2])
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
-    TypeError: size must be an integer
+	>>> print(x.__dict__)
+	{'_Square__size': 0}
+
+
+Testing size is hidden
+----------------------
+Can't use ``x.size`` as the getter will run and work
+
+      >>> x = Square(3)
+      >>> print(x._Square__size)
+      3
+
+Testing size to retrieve the size
+---------------------------------
+
+	>>> x = Square()
+	>>> print(x.size)
+	0
+
+	>>> x = Square(5)
+	>>> print(x.size)
+	5
+
+Testing size to set size
+------------------------
+
+WRONG
+	>>> x = Square()
+
+	>>> def test_init_bad2(tests):
+	... 	for test in tests:
+	...         try:
+	...		x.size = test
+	...         except Exception as e:
+	...            	print("{}: {}".format(type(e).__name__, e))
+	...
+
+	>>> test_init_bad2(["hello", [1, 2], {}, ("a", 1), 23.456, set(), test_init_bad2])
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+	TypeError: size must be an integer
+
+
+	>>> x.size = -1
+	Traceback (most recent call last):
+	ValueError: size must be >= 0
+
+GOOD
+	>>> x = Square(3)
+	>>> print(x.size)
+	3
+
+	>>> x.size = 0
+	>>> print(x.size)
+	0
+
+	>>> x.size = 5
+	>>> print(x.size)
+	5
+
+Testing Area
+------------
+	>>> x = Square(3)
+	>>> print(x.area())
+	9
+
+	>>> x.size = 0
+	>>> print(x.area())
+	0
+
+	>>> x.size = 5
+	>>> print(x.area())
+	25
