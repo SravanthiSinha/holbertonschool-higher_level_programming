@@ -16,3 +16,8 @@
 *Public instance method: def my_print(self): that prints in stdout the square with the character #:
         *if size is equal to 0, print an empty line
         *position should be use by using space
+
+#Useful links for PEP8 style and doctest:
+https://pypi.python.org/pypi/pep8
+https://pymotw.com/2/doctest/
+https://docs.python.org/3.4/library/doctest.html
