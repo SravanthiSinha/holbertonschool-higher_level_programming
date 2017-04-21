@@ -42,6 +42,9 @@ class Square:
 
 
     def my_print(self):
+        """
+        prints the # size times
+        """
         if self.__size == 0:
             print("")
         else:
