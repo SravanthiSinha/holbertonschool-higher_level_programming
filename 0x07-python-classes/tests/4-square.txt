@@ -1,0 +1,48 @@
+To run: python -m doctest 4-square.txt
+    or: python -m doctest -v 4-square.txt
+===============================
+ How to Use 4-square.py
+===============================
+
+The Square class is very basic one.
+One can set the size of the square and compute the area of the square.
+There are absic validations as size to be an non-negative integer.
+
+Creating Square instance
+========================
+::
+        >>> Square = __import__('4-square').Square
+        >>> my_square = Square(10)
+        >>> print(my_square.size)
+        10
+
+Numbers
+=======
+::
+        >>> my_square.size = 2
+        >>> print(my_square.size)
+        2
+
+Non-Numbers
+===========
+::
+        >>> my_square.size = 2.3
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> my_square.size = 'a'
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> my_square.size = -1
+        Traceback (most recent call last):
+        ...
+        ValueError: size must be >= 0
+
+Computing Area
+==============
+::
+        >>> print(my_square.size)
+        2
+        >>> my_square.area()
+        4
