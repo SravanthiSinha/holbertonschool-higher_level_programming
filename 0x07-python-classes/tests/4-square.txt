@@ -3,46 +3,48 @@ The ``4-square`` module
 
 Using ``Square`` class
 ----------------------
+
+This is a text file in reStructuredText format.
 First import ``Square`` from the ``4-square`` module:
 
     >>> Square = __import__("4-square").Square
 
-How to use:
+Now use it:
 
-    >>> s = Square(10)
+    >>> s = Square(8)
     >>> s.__class__
     <class '4-square.Square'>
 
-    >>> s.size
-    10
-
-    >>> s.size = 89
-    >>> s.size
-    89
-
-    >>> s.size = 's'
+    >>> s.size = "w"
     Traceback (most recent call last):
         ...
     TypeError: size must be an integer
 
-    >>> s.size = -3
-    Traceback (most recent call last):
-        ...
-    ValueError: size must be >= 0
+    >>> s.size
+    8
+
+    >>> s.size = 10
+    >>> s.size
+    10
 
     >>> s.area()
-    7921
+    100
 
-    >>> s.area(1)
+    >>> s.area(1337)
     Traceback (most recent call last):
         ...
     TypeError: area() takes 1 positional argument but 2 were given
 
     >>> s.__dict__
-    {'_Square__size': 89}
+    {'_Square__size': 10}
+
+    >>> s.size = -10
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
 
     >>> s.size
-    89
+    10
 
     >>> def test_init_fail(tests):
     ...     for test in tests:
@@ -52,8 +54,7 @@ How to use:
     ...        	    print("{}: {}".format(type(e).__name__, e))
     ...
 
-    >>> test_init_fail(["hello world", 22.3, [402, 98], {8,9}, ("a", 1), set(), [], test_init_fail])
-    TypeError: size must be an integer
+    >>> test_init_fail(["welcome", 2.8, [1, 2], {}, ("8", 1), set(), test_init_fail])
     TypeError: size must be an integer
     TypeError: size must be an integer
     TypeError: size must be an integer
@@ -62,15 +63,15 @@ How to use:
     TypeError: size must be an integer
     TypeError: size must be an integer
 
-    >>> s = Square()
-    >>> print(type(s))
+    >>> p = Square()
+    >>> print(type(p))
     <class '4-square.Square'>
 
-    >>> print(s.size)
+    >>> print(p.size)
     0
 
-    >>> s = Square(3)
-    >>> print(s._Square__size)
+    >>> p = Square(3)
+    >>> print(p._Square__size)
     3
 
     >>> x = Square()
@@ -81,8 +82,7 @@ How to use:
     ...	    	except Exception as e:
     ...	    	    print("{}: {}".format(type(e).__name__, e))
 
-    >>> test_init_fail2(["hello world", 22.3, [402, 98], {8,9}, ("a", 1), set(), [], test_init_fail2])
-    TypeError: size must be an integer
+    >>> test_init_fail2(["welcome", 2.8, [1, 2], {}, ("8", 1), set(), test_init_fail2])
     TypeError: size must be an integer
     TypeError: size must be an integer
     TypeError: size must be an integer

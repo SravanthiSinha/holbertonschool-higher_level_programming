@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """
 This is the Square module.
-This is a Square class inside the square module.
+This module provides a simple Square class with initialize size.
+Defaults size to 0. Raise error on invalid size inputs.
+Methods Getter and Setter properties for size.
+Method area returns size of area of the square.
 """
 
 
@@ -27,7 +30,7 @@ class Square:
         """
         sets the size of square
         """
-        if type(value) is not int:
+        if type(value) != int:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
