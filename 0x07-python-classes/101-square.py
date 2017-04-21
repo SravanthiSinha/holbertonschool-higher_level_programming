@@ -62,3 +62,11 @@ class Square:
             print("\n" * self.__position[1], end="")
             print("\n".join([" " * self.position[0] + "#" * self.__size
                              for i in range(self.__size)]))
+
+    def __str__(self):
+        """ does this need this """
+        if self.__size == 0:
+            return("")
+        return(("\n" * self.__position[1]) +
+               ("\n".join((" " * self.__position[0]) +
+                          "#" * self.__size for i in range(self.__size))))
