@@ -24,16 +24,18 @@ Now use it:
     >>> my_square = Square(3)
     >>> print(type(my_square))
     <class '4-square.Square'>
+    >>> print(my_square.__dict__)
+    {'_Square__size': 3}
 
-Numbers
-=======
+Numbers for size
+================
 
 	>>> my_square.size = 2
 	>>> print(my_square.size)
 	2
 
-Non-Numbers
-===========
+Non-Numbers as input for size
+=============================
 
 >>> def test_init_bad(tests):
 ...     for test in tests:
@@ -56,8 +58,26 @@ Non-Numbers
     Traceback (most recent call last):
     ValueError: size must be >= 0
 
+Checking the module’s namespace as a dictionary object.
+=======================================================
 
-Computing Area
+>>> x = Square(3)
+>>> print(type(x))
+<class '4-square.Square'>
+
+>>> print(x.__dict__)
+{'_Square__size': 3}
+
+
+>>> x = Square()
+>>> print(type(x))
+<class '4-square.Square'>
+
+>>> print(x.__dict__)
+{'_Square__size': 0}
+
+
+Testing Area
 ==============
 
 	>>> print(my_square.size)
