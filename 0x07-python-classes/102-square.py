@@ -37,7 +37,7 @@ class Square:
             raise ValueError('size must be >= 0')
         self.__size = value
 
-    def __gt__(self,other):
+    def __gt__(self, other):
         return self.area() > other.area()
 
     def __lt__(self, other):
