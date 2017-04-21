@@ -3,13 +3,11 @@ The ``4-square`` module
 
 Using ``Square`` class
 ----------------------
-
-This is a text file in reStructuredText format.
 First import ``Square`` from the ``4-square`` module:
 
     >>> Square = __import__("4-square").Square
 
-Now use it:
+How to use:
 
     >>> s = Square(10)
     >>> s.__class__
@@ -21,6 +19,11 @@ Now use it:
     >>> s.size = 89
     >>> s.size
     89
+
+    >>> s.size = 's'
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
 
     >>> s.size = -3
     Traceback (most recent call last):
