@@ -44,6 +44,12 @@ Non-Numbers
 	>>> my_square.size = -1
 	Traceback (most recent call last):
 	ValueError: size must be >= 0
+        >>> my_square.size = [1,2]
+        Traceback (most recent call last):
+        TypeError: size must be an integer
+        >>> my_square.size = set()
+        Traceback (most recent call last):
+        TypeError: size must be an integer
 
 Computing Area
 ==============
