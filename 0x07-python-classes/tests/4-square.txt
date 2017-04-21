@@ -37,7 +37,7 @@ Numbers for size
 Non-Numbers as input for size
 =============================
 
->>> def test_init_bad(tests):
+>>> def test_init_fail(tests):
 ...     for test in tests:
 ...         try:
 ...             x = Square(test)
@@ -45,7 +45,7 @@ Non-Numbers as input for size
 ...             print("{}: {}".format(type(e).__name__, e))
 ...
 
->>> test_init_bad(["hello world", [402, 98], {}, ("x", 1), 3.14, set(), test_init_bad, True])  #add bool
+>>> test_init_fail(["hello world", [402, 98], {}, ("x", 1), 3.14, set(), test_init_fail, True])  #add bool
 TypeError: size must be an integer
 TypeError: size must be an integer
 TypeError: size must be an integer
@@ -59,7 +59,7 @@ Traceback (most recent call last):
 ValueError: size must be >= 0
 
 >>> x = Square()
->>> def test_init_bad(tests):
+>>> def test_init_fail(tests):
 ...     for test in tests:
 ...         try:
 ...             x.size = test
@@ -67,7 +67,7 @@ ValueError: size must be >= 0
 ...             print("{}: {}".format(type(e).__name__, e))
 ...
 
->>> test_init_bad(["hello world", [402, 98], {}, ("x", 1), 3.14, set(), test_init_bad, True])  #add bool
+>>> test_init_fail(["hello world", [402, 98], {}, ("x", 1), 3.14, set(), test_init_fail, True])  #add bool
 TypeError: size must be an integer
 TypeError: size must be an integer
 TypeError: size must be an integer
