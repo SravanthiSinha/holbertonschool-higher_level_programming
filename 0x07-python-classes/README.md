@@ -22,5 +22,7 @@
 # Useful links for PEP8 style and doctest:
 
 https://pypi.python.org/pypi/pep8
+
 https://pymotw.com/2/doctest/
+
 https://docs.python.org/3.4/library/doctest.html
