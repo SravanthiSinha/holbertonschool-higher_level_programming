@@ -10,14 +10,14 @@ All scripts should have execution permissions:
 ```
 chmod u+x file
 ```
-To Run the scripts:
+To Run the python scripts:
 ```
 python3 file.py
-./file.sh
 ```
 To check the styling:
 ```
 pep8 file.py
+semistandard file.js
 ```
 ### Directories
 Each directory is named after a concept and contains ordered exercises from mandatory to advance level, and a README.md with a short description of its files.
