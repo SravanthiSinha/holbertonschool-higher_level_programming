@@ -22,6 +22,6 @@ pep8 file.py
 ### Directories
 Each directory is named after a concept and contains ordered exercises from mandatory to advance level, and a README.md with a short description of its files.
 ## Author
-**Sravnthi Sinha**
+**Sravanthi Sinha**
 I have coded all of these exercises during my software engineering training at [Holberton School](https://holbertonschool.com) and these are part of high-level-track curriculum.
 * [Linkedin](https://www.linkedin.com/in/sravanthisinha)
